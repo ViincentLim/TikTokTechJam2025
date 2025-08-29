@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Arrow from "../assets/arrow.png";
+import { useStore } from "../store.js";
 
 const BadgeWrapper = ({ url }: any) => {
   return (
@@ -48,7 +50,10 @@ const bottomBadgeList = [
   { desc: "Bottom Badge 4", url: Arrow },
 ];
 
-  export default function Popup({setShowPopup}:any) {
+export default function Popup() {
+
+    const { isOpen, toggle } = useStore();
+
   return (
     <view
       style={{
@@ -112,6 +117,7 @@ const bottomBadgeList = [
             zIndex: 2,
           }}
           aria-label="Close"
+          bindtap={() => toggle()}
         >
           <text
             style={{
