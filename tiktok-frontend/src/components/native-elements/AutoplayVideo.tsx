@@ -1,5 +1,5 @@
 //@dharshan
 
-export default function AutoplayVideo(){
-    return <></>
+export default function AutoplayVideo() {
+  return <></>;
 }
