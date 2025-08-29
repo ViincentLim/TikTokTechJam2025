@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.116.1",
     "google-genai>=1.32.0",
-    "smolagents[toolkit]>=1.21.2",
+    "mcp>=1.13.1",
+    "smolagents[litellm,mcp,toolkit]>=1.21.2",
 ]

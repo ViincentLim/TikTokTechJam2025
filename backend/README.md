@@ -7,8 +7,14 @@ Run the development server in /backend with:
 ```shell
 # uv run --env-file .env fastapi dev
 docker build -t tiktok/backend .
-docker run -t
+docker run -it -p 8090:8000 tiktok/backend
 ```
+
+goto http://localhost:8090/captcha
+
+
+# Plan
+
 
 # Notes
 Add a replay button to reset if the captcha fail (maybe like up to 3 times)

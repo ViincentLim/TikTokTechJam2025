@@ -16,6 +16,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
 COPY . .
 RUN uv sync
 
-EXPOSE 8000 8931
+EXPOSE 8000
 
 CMD ["sh", "-c", "npx @playwright/mcp@latest --port 8931 & uv run --env-file .env fastapi run"]

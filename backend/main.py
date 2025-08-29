@@ -1,9 +1,19 @@
 from fastapi import FastAPI
-from google import genai
 from pydantic import BaseModel
 from starlette.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
+
+from genai import client
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 @app.get("/")
 async def root():
@@ -20,7 +30,6 @@ class CaptchaWebsite(BaseModel):
     thoughts: str
     html: str
 
-client = genai.Client()
 # Relative filepath ./prompts/generate_captcha.txt
 with open("./prompts/generate_captcha.md", "r") as f:
     prompt = f.read()
