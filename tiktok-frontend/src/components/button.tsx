@@ -6,13 +6,13 @@ export default function Button({ onTap, children, style }: { onTap: () => void, 
         <view
             bindtap={onTap}
             style={{
-                padding: '10px 20px',
-                backgroundColor: '#ff2d55',
-                borderRadius: '5px',
-                color: 'white',
-                textAlign: 'center',
-                cursor: 'pointer',
-                userSelect: 'none',
+                // padding: '10px 20px',
+                // backgroundColor: '#ff2d55',
+                // borderRadius: '5px',
+                // color: 'white',
+                // textAlign: 'center',
+                // cursor: 'pointer',
+                // userSelect: 'none',
                 ...style,
             }}
         >

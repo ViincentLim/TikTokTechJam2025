@@ -5,12 +5,14 @@ import InboxIcon from '../assets/misc-icons/inbox.png'
 import AccountIcon from '../assets/misc-icons/account.png'
 
 
-export default function BottomBar(){
+export default function BottomBar({height}: {
+    height: '-moz-initial' | 'inherit' | 'initial' | 'revert' | 'revert-layer' | 'unset' | '-moz-max-content' | '-moz-min-content' | '-webkit-fit-content' | 'auto' | 'fit-content' | 'max-content' | 'min-content' | string | number | undefined
+}) {
     return (
         <view
             style={{
-                height:'11vh',
-                background: "black",
+                height: height,
+                background: 'grey',
                 display: 'flex',
                 // flexDirection:'row',
                 padding: "10px",
