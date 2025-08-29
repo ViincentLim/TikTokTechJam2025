@@ -10,8 +10,9 @@ Use test-driven development with playwright tools to validate that the game work
 
 Please create the html file in /private/tmp/index.html with the tool before uploading the file to the browser with playwright.
 
-NEVER use browser_snapshot, instead use browser_take_screenshot and save the image in a file, and then use evaluate_screenshot to evaluate the screenshot.
+DO NOT EVER use browser_snapshot.
+Instead use browser_take_screenshot to take a screenshot and save the image in a file, and then call evaluate_screenshot with the file name to evaluate the screenshot.
 
-
+In function arguments for the MCP server, don't use 'null', use null without single or double quotes.
 
 Please call final answer outputting only the HTML code, with no explanations or comments.

@@ -21,17 +21,14 @@ class EvaluateScreenshotTool(Tool):
         with open("./prompts/describe_screenshot.md", "r") as f:
             describe_screenshot_prompt = f.read()
 
-        # image = types.Part.from_bytes(
-        #     data=screenshot.read(), mime_type="image/jpeg"
-        # )
+        with open(screenshot, "rb") as f:
+            image = types.Part.from_bytes(
+                data=f.read(), mime_type="image/jpeg"
+            )
 
-        # print("screenshot", screenshot)
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=[describe_screenshot_prompt, image],
 
-        # response = client.models.generate_content(
-        #     model="gemini-2.5-flash",
-        #     contents=[describe_screenshot_prompt, image],
-
-        # )
-        # return response
-
-        return "screenshot description"
+        )
+        return response
