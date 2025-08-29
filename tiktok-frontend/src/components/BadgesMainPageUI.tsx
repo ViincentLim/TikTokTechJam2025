@@ -88,6 +88,7 @@ export default function Badges({ videoBadges }: BadgesProps) {
     const remainingCount = awardedBadges.length - maxVisible;
 
     return (
+        // TODO: Style width, should overlay video as well
         <Button onTap={onTap}
             style={{
                 flexDirection: 'row',
@@ -98,7 +99,8 @@ export default function Badges({ videoBadges }: BadgesProps) {
                 backgroundColor: 'rgba(243, 204, 9, 0.5)',
                 borderRadius: 25,
                 minHeight: 100,
-                maxWidth: 'auto',
+                // width: 'min-content',
+                // width: 'auto'
             }}>
             {showPopup && (
                 <Popup setShowPopup = {setShowPopup} />)}
