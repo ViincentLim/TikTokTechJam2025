@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM ghcr.io/astral-sh/uv:debian-slim
 
 RUN apt-get update && \
     apt-get install -y wget curl gnupg build-essential && \
@@ -9,13 +9,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs && \
+    apt-get install -y nodejs uvicorn && \
     rm -rf /var/lib/apt/lists/*
 
 # Python dependencies with uv
-COPY pyproject.toml uv.lock ./
-RUN pip install --no-cache-dir uv && uv pip install --system --no-deps
+COPY . .
+RUN uv sync
 
 EXPOSE 8000 8931
 
-CMD ["sh", "-c", "npx @playwright/mcp@latest --port 8931 & uvicorn main:app --host 0.0.0.0 --port 8000"]
+CMD ["sh", "-c", "npx @playwright/mcp@latest --port 8931 & uv run --env-file .env fastapi run"]
