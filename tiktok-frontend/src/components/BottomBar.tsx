@@ -22,7 +22,7 @@ export default function BottomBar(){
             </view>
 
             <view style={{display: 'flex', flexDirection: 'column'}}>
-                {/* search icon */}
+                {/* search icon */} 
                 <text>Search</text>
             </view>
 

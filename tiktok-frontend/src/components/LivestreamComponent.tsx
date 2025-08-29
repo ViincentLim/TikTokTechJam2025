@@ -1,5 +1,5 @@
 import AutoplayVideo from './native-elements/AutoplayVideo.jsx'
-import Badges from './Badges.jsx'
+import Badges from './BadgesMainPageUI.js'
 
 //this will have the LIVESTREAM UI + autoplay video
 export default function LivestreamComponent(){
