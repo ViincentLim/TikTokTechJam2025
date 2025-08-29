@@ -1,44 +1,60 @@
+import HomeIcon from '../assets/misc-icons/home.png'
+import StoreIcon from '../assets/misc-icons/store.png'
+import PlusIcon from '../assets/misc-icons/plus.png'
+import InboxIcon from '../assets/misc-icons/inbox.png'
+import AccountIcon from '../assets/misc-icons/account.png'
+
+
 export default function BottomBar(){
     return (
         <view
             style={{
                 height:'11vh',
-                background: "grey",
+                background: "black",
                 display: 'flex',
                 // flexDirection:'row',
                 padding: "10px",
-                // alignItems: "center",
+                alignItems: "center",
                 // alignContent: "center",
                 // justifySelf: 'center',
-                justifyContent: 'space-between',
+                justifyContent:'space-evenly',
                 // justifyItems:'center',
-                fontSize: 'x-small',
+                fontSize: 'x-small', //test this
                 // textAlign: 'center'
             }}>
             
-            <view style={{display: 'flex', flexDirection: 'column'}}>
+            <view style={{display: 'flex', flexDirection: 'column', alignItems:'center'}}>
                 {/* home icon */}
+                <image src={HomeIcon} style="height:40px;width:40px;"></image>
                 <text>Home</text>
             </view>
 
-            <view style={{display: 'flex', flexDirection: 'column'}}>
+            <view style={{display: 'flex', flexDirection: 'column', alignItems:'center'}}>
                 {/* search icon */} 
+                <image src={StoreIcon} style="height:40px;width:40px;"></image>
                 <text>Search</text>
             </view>
-
-            <view style={{display: 'flex', flexDirection: 'column'}}>
-                {/* plus icon */}
-                <text>---</text>
+            
+            <view style={{
+                background:'white',
+                height:'40px', width:'58px',
+                justifyContent:'center' , alignItems:'center',
+                borderRadius:'10px',
+                marginTop:'-10px'
+                }}>
+                <image src={PlusIcon} style="height:35px;width:35px;"></image>
             </view>
 
-            <view style={{display: 'flex', flexDirection: 'column'}}>
+            <view style={{display: 'flex', flexDirection: 'column', alignItems:'center'}}>
                 {/* inbox icon */}
+                <image src={InboxIcon} style="height:40px;width:40px;"></image>
                 <text>Inbox</text>
             </view>
 
-            <view style={{display: 'flex', flexDirection: 'column'}}>
+            <view style={{display: 'flex', flexDirection: 'column', alignItems:'center'}}>
                 {/* account icon */}
-                <text>Me</text>
+                <image src={AccountIcon} style="height:40px;width:40px;padding:2px"></image>
+                <text>Profile</text>
             </view>
 
         </view>

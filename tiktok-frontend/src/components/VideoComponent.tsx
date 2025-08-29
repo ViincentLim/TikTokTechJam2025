@@ -7,8 +7,12 @@ import MessageIcon from '../assets/misc-icons/message.png'
 import SaveIcon from '../assets/misc-icons/save.png'
 import ShareIcon from '../assets/misc-icons/share.png'
 
+type BadgesProps = {
+    videoBadges: Record<number, number>;
+};
+
 //this will have the SHORT VIDEO UI + autoplay video
-export default function VideoComponent(){ //id: string, badgesInfo:Record<string, Record<number, number>>
+export default function VideoComponent({ videoBadges }: BadgesProps){ //id: string, badgesInfo:Record<string, Record<number, number>>
     return (
         <view style={{
             position:"relative",
@@ -24,10 +28,11 @@ export default function VideoComponent(){ //id: string, badgesInfo:Record<string
                 position:"absolute",
                 zIndex:"2",
                 height: "89vh",
-                width: '100vh',
+                width: '100vw',
                 display:'flex',
-                justifyContent:'space-between'
-                }}>
+                justifyContent:'space-between',
+                // background:'red'
+            }}>
                 {/* UI on the left - badges, creatorname, description */}
                 <view style={{
                     display:'flex',
@@ -36,8 +41,10 @@ export default function VideoComponent(){ //id: string, badgesInfo:Record<string
                     // alignContent:'start',
                     justifyContent:'end'
                 }}>
-                    {/* <view style='width:100px;height:10px;background:white'></view> */}
-                    <BadgesMainPageUI/>
+                    {/* LIMIT SIZE */}
+                    <BadgesMainPageUI videoBadges={videoBadges}/>
+
+                    {/* change font with fontsize and fonttype (bold) */}
                     <text>Creator Name</text>
                     <text>Video Description</text>
 
@@ -47,18 +54,19 @@ export default function VideoComponent(){ //id: string, badgesInfo:Record<string
                 <view style={{
                     display:'flex',
                     flexDirection:'column',
+                    // background:'white',
                     justifyContent:'end',
-                    alignContent:'end'
+                    alignItems:'center'
                 }}>
-                    <image src={ProfileIcon} style="width:60px;height:60px;"></image>
+                    <image src={ProfileIcon} style="width:60px;height:60px;margin:5px;"></image>
 
-                    <image src={HeartIcon} style="width:60px;height:60px;"></image>
+                    <image src={HeartIcon} style="width:55px;height:55px;margin:5px;"></image>
 
-                    <image src={MessageIcon} style="width:60px;height:60px;"></image>
+                    <image src={MessageIcon} style="width:60px;height:60px;margin:5px;"></image>
                     
-                    <image src={SaveIcon} style="width:60px;height:60px;"></image>
+                    <image src={SaveIcon} style="width:50px;height:45px;margin:5px;"></image>
 
-                    <image src={ShareIcon} style="width:60px;height:60px;"></image>
+                    <image src={ShareIcon} style="width:55px;height:55px;margin:5px;"></image>
                 </view>
 
             </view>
@@ -67,7 +75,7 @@ export default function VideoComponent(){ //id: string, badgesInfo:Record<string
             <view style={{
                 position:"absolute",
                 height: "89vh",
-                width: '100vh',
+                width: '100vw',
                 zIndex:"1",
                 // background:'red',
             }}>

@@ -13,7 +13,7 @@ type BadgesProps = {
   videoBadges: Record<number, number>;
 };
 //this will have the LIVESTREAM UI + autoplay video
-export default function LivestreamComponent({}){
+export default function LivestreamComponent({ videoBadges }: BadgesProps){
     return (
         <view style={{
             position:"relative",
@@ -68,7 +68,9 @@ export default function LivestreamComponent({}){
                             <text>+ Follow</text></view>
                     </view>
                     <text>Livestream Description</text>
-                    <BadgesMainPageUI/>
+
+                    {/* LIMIT SIZE */}
+                    <BadgesMainPageUI videoBadges={videoBadges}/>
                     
 
                 </view>
