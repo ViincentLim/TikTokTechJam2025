@@ -1,12 +1,14 @@
-export default function BottomBar(){
+export default function BottomBar({height}: {
+    height: '-moz-initial' | 'inherit' | 'initial' | 'revert' | 'revert-layer' | 'unset' | '-moz-max-content' | '-moz-min-content' | '-webkit-fit-content' | 'auto' | 'fit-content' | 'max-content' | 'min-content' | string | number | undefined
+}) {
     return (
         <view
             style={{
-                height:'11vh',
-                background: "grey",
+                height: height,
+                background: 'grey',
                 display: 'flex',
                 // flexDirection:'row',
-                padding: "10px",
+                padding: '10px',
                 // alignItems: "center",
                 // alignContent: "center",
                 // justifySelf: 'center',
@@ -15,14 +17,14 @@ export default function BottomBar(){
                 fontSize: 'x-small',
                 // textAlign: 'center'
             }}>
-            
+
             <view style={{display: 'flex', flexDirection: 'column'}}>
                 {/* home icon */}
                 <text>Home</text>
             </view>
 
             <view style={{display: 'flex', flexDirection: 'column'}}>
-                {/* search icon */} 
+                {/* search icon */}
                 <text>Search</text>
             </view>
 
