@@ -28,11 +28,12 @@ export function App(props: { onRender?: () => void }) {
   return (
     <view style={{ display: "flex", flexDirection: "column", }}>
       {/* MAIN SCROLLING PAGE */}
-      <scroll-view style={{ background: "red", height: "89vh" }}></scroll-view>
+      {/* <scroll-view style={{ background: "red", height: "89vh" }}></scroll-view> */}
 
       
-      
-      <Badges videoBadges={videoBadges.video1}/>
+      <VideoComponent videoBadges={videoBadges.video1}/>
+      {/* <LivestreamComponent videoBadges={videoBadges.livestream1}/> */}
+      {/* <Badges videoBadges={videoBadges.video1}/> */}
 
       <BottomBar />
     </view>
