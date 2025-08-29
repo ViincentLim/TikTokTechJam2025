@@ -10,9 +10,11 @@ export function IconButton({imageSrc, label}: {
     label: string;
 }) {
     return (
-        <view style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-            <image src={imageSrc} style="height:40px;width:40px;"></image>
-            <text>{label}</text>
+        <view style={{alignItems: 'center'}}>
+            <image src={imageSrc} style={{
+                width: '30px', height: '30px',
+            }}></image>
+            <text style={{textAlign: 'center'}}>{label}</text>
         </view>
     );
 }
@@ -31,7 +33,7 @@ export default function BottomBar({height}: {
                 alignItems: 'center',
                 // alignContent: "center",
                 // justifySelf: 'center',
-                justifyContent: 'space-evenly',
+                justifyContent: 'space-around',
                 // justifyItems:'center',
                 fontSize: 'x-small', //test this
                 // textAlign: 'center'
