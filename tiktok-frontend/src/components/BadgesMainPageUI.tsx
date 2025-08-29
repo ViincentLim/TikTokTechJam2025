@@ -1,7 +1,8 @@
-import { useCallback, useState } from '@lynx-js/react';
+import { createContext, useCallback, useState } from '@lynx-js/react';
 import AutoplayVideo from './native-elements/AutoplayVideo.js';
 import Popup from './Popup.js';
 import Button from './button.js';
+import { useStore } from '../store.js';
 
 type BadgesProps = {
     videoBadges?: Record<number, number>;
@@ -11,6 +12,8 @@ type BadgeIconProps = {
     type: number;
     count: number;
 };
+
+const PopupContext = createContext(null);
 
 function BadgeIcon({ type, count }: BadgeIconProps) {
     const iconMap: Record<number, string> = {
@@ -50,8 +53,8 @@ function BadgeIcon({ type, count }: BadgeIconProps) {
 }
 
 export default function Badges({ videoBadges }: BadgesProps) {
-    const [showPopup, setShowPopup] = useState(false);
-    const onTap = useCallback(() => {setShowPopup(!showPopup) }, []);
+    const { isOpen, toggle } = useStore();
+    const onTap = useCallback(() => {toggle()}, []);
 
     const awardedBadges = Object.entries(videoBadges ?? {}).filter(([_, count]) => count > 0);
     console.log('awardedBadges', awardedBadges);
@@ -102,8 +105,8 @@ export default function Badges({ videoBadges }: BadgesProps) {
                 // width: 'min-content',
                 // width: 'auto'
             }}>
-            {showPopup && (
-                <Popup setShowPopup = {setShowPopup} />)}
+            {isOpen && (
+                <Popup />)}
             {visibleBadges.map(([typeStr, count]) => (
                 <BadgeIcon key={typeStr} type={Number(typeStr)} count={count} />
             ))}
