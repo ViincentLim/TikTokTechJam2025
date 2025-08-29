@@ -4,7 +4,7 @@ import Popup from './Popup.js';
 import Button from './button.js';
 
 type BadgesProps = {
-    videoBadges: Record<number, number>;
+    videoBadges?: Record<number, number>;
 };
 
 type BadgeIconProps = {
@@ -53,7 +53,7 @@ export default function Badges({ videoBadges }: BadgesProps) {
     const [showPopup, setShowPopup] = useState(false);
     const onTap = useCallback(() => {setShowPopup(!showPopup) }, []);
 
-    const awardedBadges = Object.entries(videoBadges).filter(([_, count]) => count > 0);
+    const awardedBadges = Object.entries(videoBadges ?? {}).filter(([_, count]) => count > 0);
     console.log('awardedBadges', awardedBadges);
 
     // CASE 1: No awards -> single medal button
