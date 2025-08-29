@@ -1,3 +1,14 @@
+
+## Notes
+
+ - Import `.tsx` files with `.jsx` as per their example https://lynxjs.org/guide/start/tutorial-gallery.html#what-are-we-building
+
+
+
+
+---
+## Original README
+
 ## Rspeedy project
 
 This is a ReactLynx project bootstrapped with `create-rspeedy`.
