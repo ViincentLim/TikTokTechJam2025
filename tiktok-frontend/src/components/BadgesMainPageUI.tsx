@@ -54,7 +54,6 @@ function BadgeIcon({ type, count }: BadgeIconProps) {
 
 export default function Badges({ videoBadges }: BadgesProps) {
     const { isOpen, toggle } = useStore();
-    const onTap = useCallback(() => {toggle()}, []);
 
     const awardedBadges = Object.entries(videoBadges ?? {}).filter(([_, count]) => count > 0);
     console.log('awardedBadges', awardedBadges);
@@ -62,8 +61,8 @@ export default function Badges({ videoBadges }: BadgesProps) {
     // CASE 1: No awards -> single medal button
     if (awardedBadges.length === 0) {
         return (
-                <view
-                bindtap={onTap}
+            <view
+                bindtap={toggle}
                 style={{
                     padding: '8px',
                     color: 'white',
@@ -93,7 +92,7 @@ export default function Badges({ videoBadges }: BadgesProps) {
     return (
         // TODO: Style width, should overlay video as well
             <view style={{display: 'flex', flexDirection: 'row'}}>
-        <Button onTap={onTap}
+        <Button onTap={toggle}
             style={{
                 flexDirection: 'row',
                 alignItems: 'center',
