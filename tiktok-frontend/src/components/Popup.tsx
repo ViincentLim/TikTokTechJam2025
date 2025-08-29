@@ -21,9 +21,9 @@ const TopBadge = ({ url, quantity }: any) => {
 };
 
 // TODO: add href/function that is clickable
-const BottomBadge = ({ url, desc }: any) => {
+const BottomBadge = ({ url, desc, mediaName, id, increment }: any) => {
   return (
-    <view className="BottomBadge">
+    <view className="BottomBadge" bindtap={() => increment(mediaName, id)}>
       <BadgeWrapper url={url} />
       <text style={{ color: "#444", fontSize: 16 }}>{desc}</text>
     </view>
@@ -31,28 +31,29 @@ const BottomBadge = ({ url, desc }: any) => {
 };
 
 const topBadgeList = [
-  { quantity: 1, url: Arrow },
-  { quantity: 1, url: Arrow },
-  { quantity: 5, url: Arrow },
-  { quantity: 1, url: Arrow },
+  { quantity: 1, url: Arrow, id: 1 },
+  { quantity: 1, url: Arrow, id: 2 },
+  { quantity: 5, url: Arrow, id: 3 },
+  { quantity: 1, url: Arrow, id: 4 },
 ];
 
 const bottomBadgeList = [
-  { desc: "Bottom Badge 1", url: Arrow },
-  { desc: "Bottom Badge 2", url: Arrow },
-  { desc: "Bottom Badge 3", url: Arrow },
-  { desc: "Bottom Badge 4", url: Arrow },
-  { desc: "Bottom Badge 2", url: Arrow },
-  { desc: "Bottom Badge 3", url: Arrow },
-  { desc: "Bottom Badge 4", url: Arrow },
-  { desc: "Bottom Badge 2", url: Arrow },
-  { desc: "Bottom Badge 3", url: Arrow },
-  { desc: "Bottom Badge 4", url: Arrow },
+  { desc: "Bottom Badge 1", url: Arrow, id: 1 },
+  { desc: "Bottom Badge 2", url: Arrow, id: 2 },
+  { desc: "Bottom Badge 3", url: Arrow, id: 3 },
+  { desc: "Bottom Badge 4", url: Arrow, id: 4 },
+  { desc: "Bottom Badge 2", url: Arrow, id: 5 },
+  { desc: "Bottom Badge 3", url: Arrow, id: 6 },
+  { desc: "Bottom Badge 4", url: Arrow, id: 7 },
+  { desc: "Bottom Badge 2", url: Arrow, id: 8 },
+  { desc: "Bottom Badge 3", url: Arrow, id: 9 },
+  { desc: "Bottom Badge 4", url: Arrow, id: 10 },
 ];
 
 export default function Popup() {
+  const [mediaName, setMediaName] = useState("video1");
 
-    const { isOpen, toggle } = useStore();
+  const { toggle, badges, incrBadge } = useStore();
 
   return (
     <view
@@ -68,6 +69,7 @@ export default function Popup() {
         justifyContent: "center",
         zIndex: 1000,
       }}
+      bindtap={toggle}
     >
       <view
         style={{
@@ -117,7 +119,7 @@ export default function Popup() {
             zIndex: 2,
           }}
           aria-label="Close"
-          bindtap={() => toggle()}
+          bindtap={toggle}
         >
           <text
             style={{
@@ -146,13 +148,24 @@ export default function Popup() {
           </text>
           <view style={{ display: "flex" }}>
             {topBadgeList.map((badge, index) => (
-              <TopBadge key={index} url={badge.url} quantity={badge.quantity} />
+              <TopBadge
+                key={index}
+                url={badge.url}
+                quantity={badges[mediaName][badge.id]}
+              />
             ))}
           </view>
           <view style={{ marginTop: 12 }}>
             <view style={{ display: "flex", flexWrap: "wrap" }}>
               {bottomBadgeList.map((badge, idx) => (
-                <BottomBadge key={idx} url={badge.url} desc={badge.desc} />
+                <BottomBadge
+                  key={idx}
+                  url={badge.url}
+                  desc={badge.desc}
+                  mediaName={mediaName}
+                  id={badge.id}
+                  increment={incrBadge}
+                />
               ))}
             </view>
           </view>

@@ -1,15 +1,36 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 type State = {
   isOpen: boolean;
+  badges: Record<string, Record<number, number>>;
 };
 
 type Toggle = {
   toggle: () => void;
+  incrBadge: (userId: string, badgeType: number) => void;
 };
-
 
 export const useStore = create<State & Toggle>((set) => ({
   isOpen: false,
-  toggle: () => set((state) => ({ isOpen: !state.isOpen })),
+  badges: {
+    video1: { 1: 5, 2: 3, 3: 0, 4: 1 },
+    video2: { 1: 0, 2: 0, 3: 0, 4: 0 },
+    livestream1: { 1: 1, 2: 1, 3: 1, 4: 1 },
+  },
+  toggle: () => set((state) => ({ ...state, isOpen: !state.isOpen })),
+  incrBadge: (userId, badgeType) =>
+    set((state) => {
+      const userBadges = state.badges[userId] || {};
+      const newCount = (userBadges[badgeType] || 0) + 1;
+      return {
+        ...state,
+        badges: {
+          ...state.badges,
+          [userId]: {
+            ...userBadges,
+            [badgeType]: newCount,
+          },
+        },
+      };
+    }),
 }));
