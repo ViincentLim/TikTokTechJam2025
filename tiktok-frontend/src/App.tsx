@@ -6,6 +6,7 @@ import lynxLogo from "./assets/lynx-logo.png";
 import reactLynxLogo from "./assets/react-logo.png";
 
 import BottomBar from "./components/BottomBar.jsx";
+import Popup from "./components/Popup.jsx";
 // import RechargePopup from "./components/RechargePopup.jsx"; // yet to implment
 
 export function App(props: { onRender?: () => void }) {
@@ -34,7 +35,8 @@ export function App(props: { onRender?: () => void }) {
     <view style={{ display: "flex", flexDirection: "column" }}>
       {/* MAIN SCROLLING PAGE */}
       <scroll-view style={{ background: "red", height: "89vh" }}></scroll-view>
-
+      <Popup />
+      {/* <BottomBar /> */}
       <BottomBar />
     </view>
   );
