@@ -19,7 +19,7 @@ export default function LivestreamComponent({ videoBadges }: BadgesProps){
             position:"relative",
             // display:'block',
             // background:'red',
-            height: "89vh",
+            height: "100%",
             width: '100vw',
         }}>
 
@@ -29,7 +29,7 @@ export default function LivestreamComponent({ videoBadges }: BadgesProps){
                 padding:'10px',
                 position:"absolute",
                 zIndex:"2",
-                height: "89vh",
+                height: "100%",
                 width: '100vw',
                 display:'flex',
                 flexDirection:'column',
@@ -67,11 +67,11 @@ export default function LivestreamComponent({ videoBadges }: BadgesProps){
                         }}>
                             <text>+ Follow</text></view>
                     </view>
-                    <text>Livestream Description</text>
+                    <text style='margin-left:5px;margin-top:5px;'>Livestream Description</text>
 
-                    {/* LIMIT SIZE */}
+                    <view style='margin-left:3px;margin-top:7px;'>
                     <BadgesMainPageUI videoBadges={videoBadges}/>
-                    
+                    </view>
 
                 </view>
 
@@ -110,7 +110,7 @@ export default function LivestreamComponent({ videoBadges }: BadgesProps){
             {/* Native Autoplay Video Component*/}
             <view style={{
                 position:"absolute",
-                height: "89vh",
+                height: "100%",
                 width: '100vw',
                 zIndex:"1",
                 // background:'red',

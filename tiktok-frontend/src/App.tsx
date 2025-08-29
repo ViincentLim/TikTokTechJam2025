@@ -3,6 +3,7 @@ import {useState} from '@lynx-js/react';
 import './App.css';
 import BottomBar from './components/BottomBar.js';
 import VideoComponent from './components/VideoComponent.js';
+import LivestreamComponent from './components/LivestreamComponent.js';
 
 // import RechargePopup from "./components/RechargePopup.jsx"; // yet to implment
 const BOTTOM_BAR_HEIGHT = '56px';
@@ -49,6 +50,8 @@ export function App(props: { onRender?: () => void }) {
                 {/*    </view>*/}
                 {/*</scroll-view>*/}
                 {/*TODO: This should be video element, that can be scrolled later*/}
+
+                {/* NOTE / TODO: will have to hardcode the 4-5 example videos as some of these videos will have the livestreamUI instead of the videoUI */}
                 {[videoBadgesMap.video1, videoBadgesMap.video2, videoBadgesMap.livestream1].map(videoBadges => {
                     return (
                         <view style={{
@@ -57,6 +60,7 @@ export function App(props: { onRender?: () => void }) {
                             background: 'pink',
                         }}>
                             <VideoComponent videoBadges={videoBadges}/>
+                            {/* <LivestreamComponent videoBadges={videoBadges}/> */}
                         </view>
                     );
                 })}

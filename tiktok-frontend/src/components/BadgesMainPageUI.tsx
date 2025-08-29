@@ -26,23 +26,23 @@ function BadgeIcon({ type, count }: BadgeIconProps) {
 
     return (
         <view style={{
-            padding: 8,
+            padding: '2px',
             color: 'white',
-            margin: 4,
-            borderRadius: 24, // More pronounced rounding for individual badges
+            margin: '5px',
+            borderRadius: '24px', // More pronounced rounding for individual badges
             flexDirection: 'row',
             display: 'flex', // Ensure content inside BadgeIcon is also a row
             alignItems: 'center',
-            justifyContent: 'center',
-            minWidth: 100, // Give a minimum width for consistent sizing
-            height: 50, // Give a fixed height
-            fontSize: 20, // Adjust font size for the icon
+            // justifyContent: '',
+            // minWidth: '100px', // Give a minimum width for consistent sizing
+            // height: '50px', // Give a fixed height
+            // fontSize: '20px', // Adjust font size for the icon
             fontWeight: 'bold',
         }}>
-            <view style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <view style={{ display:'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <text>{icon}</text>
 
-                <text style={{ marginLeft: 2, fontSize: 24, color: 'white' }}>
+                <text style={{ marginLeft: '2px', fontSize: '15px', color: 'white' }}>
                     x{count}
                 </text>
 
@@ -62,24 +62,24 @@ export default function Badges({ videoBadges }: BadgesProps) {
     // CASE 1: No awards -> single medal button
     if (awardedBadges.length === 0) {
         return (
-            <view
+                <view
                 bindtap={onTap}
                 style={{
-                    padding: 8,
+                    padding: '8px',
                     color: 'white',
-                    margin: 4,
-                    borderRadius: 24, // More pronounced rounding for individual badges
+                    margin: '4px',
+                    borderRadius: '24px', // More pronounced rounding for individual badges
                     flexDirection: 'row',
                     display: 'flex', // Ensure content inside BadgeIcon is also a row
                     alignItems: 'center',
                     justifyContent: 'center',
-                    minWidth: 100, // Give a minimum width for consistent sizing
-                    minHeight: 80, // Give a fixed height
-                    fontSize: 10, // Adjust font size for the icon
+                    // minWidth: '100px', // Give a minimum width for consistent sizing
+                    // minHeight: '80px', // Give a fixed height
+                    fontSize: '10px', // Adjust font size for the icon
                     fontWeight: 'bold',
                 }}
             >
-                <text style={{ fontSize: 40 }}>🎖️</text> {/* Wrap the icon in a <text> component for proper sizing */}
+                <text style={{ fontSize: '40px' }}>🎖️</text> {/* Wrap the icon in a <text> component for proper sizing */}
             </view>
         );
     }
@@ -92,16 +92,17 @@ export default function Badges({ videoBadges }: BadgesProps) {
 
     return (
         // TODO: Style width, should overlay video as well
+            <view style={{display: 'flex', flexDirection: 'row'}}>
         <Button onTap={onTap}
             style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 display: 'flex',
-                padding: 4,
+                padding: '4px',
                 backgroundColor: 'rgba(243, 204, 9, 0.5)',
-                borderRadius: 25,
-                minHeight: 100,
+                borderRadius: '25px',
+                // minHeight: '100px',
                 // width: 'min-content',
                 // width: 'auto'
             }}>
@@ -112,23 +113,24 @@ export default function Badges({ videoBadges }: BadgesProps) {
             ))}
             {remainingCount > 0 && (
                 <view style={{
-                    padding: 8,
+                    padding: '8px',
                     color: 'black',
-                    margin: 4,
-                    borderRadius: 24, // More pronounced rounding for individual badges
+                    margin: '4px',
+                    borderRadius: '24px', // More pronounced rounding for individual badges
                     flexDirection: 'row',
                     display: 'flex', // Ensure content inside BadgeIcon is also a row
                     alignItems: 'center',
                     justifyContent: 'center',
-                    minWidth: 100, // Give a minimum width for consistent sizing
-                    minHeight: 80, // Give a fixed height
+                    // minWidth: '100px', // Give a minimum width for consistent sizing
+                    // minHeight: '80px', // Give a fixed height
                     fontWeight: 'bold',
                 }}>
-                    <text style={{ fontSize: 50, color: 'white' }}>
+                    <text style={{ fontSize: '50px', color: 'white' }}>
                         +{remainingCount}
                     </text>
                 </view>
             )}
         </Button>
+        </view>
     );
 }

@@ -48,12 +48,14 @@ function Overlay({videoBadges}: { videoBadges: Record<number, number> }) {
             flexDirection: 'column',
             justifyContent: 'end'
         }}>
-            {/* LIMIT SIZE */}
-            <BadgesMainPageUI videoBadges={videoBadges}/>
+            <view style='margin-left:10px;'>
+                <BadgesMainPageUI videoBadges={videoBadges}/>
+            </view>
+            
 
             {/* change font with fontsize and fonttype (bold) */}
-            <text style={{fontSize:'20px', fontWeight:'600', marginLeft:'5px', marginBottom:'3px', marginTop:'3px'}}>Creator Name</text>
-            <text style={{fontSize:'17px', marginLeft:'5px', marginBottom:'5px'}}>Video Description</text>
+            <text style={{fontSize:'20px', fontWeight:'600', marginLeft:'10px', marginBottom:'3px', marginTop:'5px'}}>Creator Name</text>
+            <text style={{fontSize:'17px', marginLeft:'10px', marginBottom:'10px'}}>Video Description</text>
 
         </view>
 
