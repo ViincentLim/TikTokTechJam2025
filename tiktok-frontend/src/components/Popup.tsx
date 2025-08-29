@@ -55,6 +55,7 @@ export default function Popup() {
 
   const { toggle, badges, incrBadge } = useStore();
 
+  // bindtap to toggle for the entire popup element to fix bug where popup closes when anywhere on popup is clicked
   return (
     <view
       style={{
