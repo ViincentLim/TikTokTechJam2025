@@ -9,8 +9,11 @@ import RoseIcon from '../assets/misc-icons/rose.png'
 import GiftIcon from '../assets/misc-icons/gift.png'
 import ShareIcon from '../assets/misc-icons/share.png'
 
+type BadgesProps = {
+  videoBadges: Record<number, number>;
+};
 //this will have the LIVESTREAM UI + autoplay video
-export default function LivestreamComponent(){
+export default function LivestreamComponent({}){
     return (
         <view style={{
             position:"relative",
