@@ -5,7 +5,7 @@ import BottomBar from './components/BottomBar.js';
 import VideoComponent from './components/VideoComponent.js';
 
 // import RechargePopup from "./components/RechargePopup.jsx"; // yet to implment
-const BOTTOM_BAR_HEIGHT = '48px';
+const BOTTOM_BAR_HEIGHT = '56px';
 
 export function App(props: { onRender?: () => void }) {
     const [alterLogo, setAlterLogo] = useState(false);
