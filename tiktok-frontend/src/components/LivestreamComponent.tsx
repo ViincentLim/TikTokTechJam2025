@@ -11,9 +11,10 @@ import ShareIcon from '../assets/misc-icons/share.png'
 
 type BadgesProps = {
   videoBadges: Record<number, number>;
+  id: string;
 };
 //this will have the LIVESTREAM UI + autoplay video
-export default function LivestreamComponent({ videoBadges }: BadgesProps){
+export default function LivestreamComponent({ videoBadges, id }: BadgesProps){
     return (
         <view style={{
             position:"relative",
@@ -70,7 +71,7 @@ export default function LivestreamComponent({ videoBadges }: BadgesProps){
                     <text style='margin-left:5px;margin-top:5px;'>Livestream Description</text>
 
                     <view style='margin-left:3px;margin-top:7px;'>
-                    <BadgesMainPageUI videoBadges={videoBadges}/>
+                    <BadgesMainPageUI id={id}/>
                     </view>
 
                 </view>

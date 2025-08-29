@@ -3,21 +3,25 @@ import { create } from "zustand";
 type State = {
   isOpen: boolean;
   badges: Record<string, Record<number, number>>;
+  currentId: string;
 };
 
 type Toggle = {
   toggle: () => void;
   incrBadge: (userId: string, badgeType: number) => void;
+  setCurrentId: (id: string) => void;
 };
 
 export const useStore = create<State & Toggle>((set) => ({
   isOpen: false,
+  currentId: "",
   badges: {
     video1: { 1: 5, 2: 3, 3: 0, 4: 1 },
     video2: { 1: 0, 2: 0, 3: 0, 4: 0 },
     livestream1: { 1: 1, 2: 1, 3: 1, 4: 1 },
   },
   toggle: () => set((state) => ({ ...state, isOpen: !state.isOpen })),
+  setCurrentId: (id) => set((state) => ({ ...state, currentId: id })),
   incrBadge: (userId, badgeType) =>
     set((state) => {
       const userBadges = state.badges[userId] || {};

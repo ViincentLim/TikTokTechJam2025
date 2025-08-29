@@ -51,9 +51,7 @@ const bottomBadgeList = [
 ];
 
 export default function Popup() {
-  const [mediaName, setMediaName] = useState("video1");
-
-  const { toggle, badges, incrBadge } = useStore();
+  const { currentId, toggle, badges, incrBadge } = useStore();
 
   // bindtap to toggle for the entire popup element to fix bug where popup closes when anywhere on popup is clicked
   return (
@@ -152,7 +150,7 @@ export default function Popup() {
               <TopBadge
                 key={index}
                 url={badge.url}
-                quantity={badges[mediaName][badge.id]}
+                quantity={badges[currentId][badge.id]}
               />
             ))}
           </view>
@@ -163,7 +161,7 @@ export default function Popup() {
                   key={idx}
                   url={badge.url}
                   desc={badge.desc}
-                  mediaName={mediaName}
+                  mediaName={currentId}
                   id={badge.id}
                   increment={incrBadge}
                 />
