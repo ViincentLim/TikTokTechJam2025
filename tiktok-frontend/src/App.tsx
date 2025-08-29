@@ -8,6 +8,7 @@ import reactLynxLogo from "./assets/react-logo.png";
 import VideoComponent from "./components/VideoComponent.js";
 import LivestreamComponent from "./components/LivestreamComponent.js";
 import BottomBar from "./components/BottomBar.js";
+import Popup from "./components/Popup.jsx";
 
 // import RechargePopup from "./components/RechargePopup.jsx"; // yet to implment
 
