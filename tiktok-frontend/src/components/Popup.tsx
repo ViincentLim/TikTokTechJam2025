@@ -48,7 +48,7 @@ const bottomBadgeList = [
   { desc: "Bottom Badge 4", url: Arrow },
 ];
 
-export default function Popup() {
+  export default function Popup({setShowPopup}:any) {
   return (
     <view
       style={{
