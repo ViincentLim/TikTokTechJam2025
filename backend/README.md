@@ -7,3 +7,7 @@ Run the development server in /backend with:
 ```shell
 uv run --env-file .env fastapi dev
 ```
+
+# Notes
+Add a replay button to reset if the captcha fail (maybe like up to 3 times)
+Some captchas are time-sensitive

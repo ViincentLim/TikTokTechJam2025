@@ -23,7 +23,7 @@ class CaptchaWebsite(BaseModel):
 
 client = genai.Client()
 # Relative filepath ./prompts/generate_captcha.txt
-with open("./prompts/generate_captcha.txt", "r") as f:
+with open("./prompts/generate_captcha.md", "r") as f:
     prompt = f.read()
 
 @app.get("/captcha", response_class=HTMLResponse)
