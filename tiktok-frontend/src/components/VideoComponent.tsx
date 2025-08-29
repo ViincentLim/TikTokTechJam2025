@@ -18,6 +18,7 @@ function IconButtonColumn() {
             flexDirection: 'column',
             justifyContent: 'end',
             alignItems: 'center'
+            
         }}>
             <image src={ProfileIcon} style="width:60px;height:60px;margin:5px;"></image>
 
@@ -34,14 +35,12 @@ function IconButtonColumn() {
 
 function Overlay({videoBadges}: { videoBadges: Record<number, number> }) {
     return <view style={{
-        // background:'white',
         position: 'absolute',
         zIndex: '1',
         height: '100%',
         width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
-        // background:'red'
     }}>
         {/* UI on the left - badges, creatorname, description */}
         <view style={{
@@ -53,8 +52,8 @@ function Overlay({videoBadges}: { videoBadges: Record<number, number> }) {
             <BadgesMainPageUI videoBadges={videoBadges}/>
 
             {/* change font with fontsize and fonttype (bold) */}
-            <text>Creator Name</text>
-            <text>Video Description</text>
+            <text style={{fontSize:'20px', fontWeight:'600', marginLeft:'5px', marginBottom:'3px', marginTop:'3px'}}>Creator Name</text>
+            <text style={{fontSize:'17px', marginLeft:'5px', marginBottom:'5px'}}>Video Description</text>
 
         </view>
 
