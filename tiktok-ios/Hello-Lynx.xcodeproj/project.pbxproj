@@ -17,6 +17,7 @@
 		2BE49E032D7720F0000D068C /* main.lynx.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BE49E022D7720F0000D068C /* main.lynx.bundle */; };
 		2CC304F92E628D6900D2ADEA /* LynxWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC304F82E628D6900D2ADEA /* LynxWebView.m */; };
 		63972E0D34F86B0706325BCE /* libPods-Hello-Lynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B67B2104D0445A811952B8 /* libPods-Hello-Lynx.a */; };
+		6EA704372E62A1F2005CFBF1 /* static in Resources */ = {isa = PBXBuildFile; fileRef = 6EA704352E62A1CE005CFBF1 /* static */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		2CC304F72E628D6900D2ADEA /* LynxWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LynxWebView.h; sourceTree = "<group>"; };
 		2CC304F82E628D6900D2ADEA /* LynxWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LynxWebView.m; sourceTree = "<group>"; };
 		61CE2062BA0F77A3DF32F268 /* Pods-Hello-Lynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello-Lynx.release.xcconfig"; path = "Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx.release.xcconfig"; sourceTree = "<group>"; };
+		6EA704352E62A1CE005CFBF1 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
 		72043EE1F9E3529358168057 /* Pods-Hello-Lynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello-Lynx.debug.xcconfig"; path = "Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx.debug.xcconfig"; sourceTree = "<group>"; };
 		C4B67B2104D0445A811952B8 /* libPods-Hello-Lynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hello-Lynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -53,6 +55,7 @@
 		2B94A3BC2D6613730060892C = {
 			isa = PBXGroup;
 			children = (
+				6EA704352E62A1CE005CFBF1 /* static */,
 				2CC304F72E628D6900D2ADEA /* LynxWebView.h */,
 				2CC304F82E628D6900D2ADEA /* LynxWebView.m */,
 				2BE49E022D7720F0000D068C /* main.lynx.bundle */,
@@ -164,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EA704372E62A1F2005CFBF1 /* static in Resources */,
 				2BE49E032D7720F0000D068C /* main.lynx.bundle in Resources */,
 				2B94A3D22D6613740060892C /* Assets.xcassets in Resources */,
 				2B94A3D52D6613740060892C /* Base in Resources */,

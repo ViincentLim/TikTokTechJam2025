@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "rspeedy build",
+    "build": "rspeedy build && npm run copy",
+    "copy": "copyfiles -u 1 \"dist/**/*\" ../tiktok-ios/",
     "dev": "rspeedy dev",
     "preview": "rspeedy preview",
     "test": "vitest run"
@@ -21,6 +22,7 @@
     "@rsbuild/plugin-type-check": "1.2.4",
     "@testing-library/jest-dom": "^6.8.0",
     "@types/react": "^18.3.23",
+    "copyfiles": "^2.4.1",
     "jsdom": "^26.1.0",
     "typescript": "~5.9.2",
     "vitest": "^3.2.4"
