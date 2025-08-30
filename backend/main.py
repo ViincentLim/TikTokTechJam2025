@@ -27,22 +27,9 @@ async def get_video(video_id: str):
     return {"video_id": video_id, "title": "Sample Video"}
 
 
-class CaptchaWebsite(BaseModel):
-    thoughts: str
-    html: str
-
-# Relative filepath ./prompts/generate_captcha.txt
-with open("./prompts/generate_captcha.md", "r") as f:
-    prompt = f.read()
-
 @app.get("/captcha", response_class=HTMLResponse)
 async def get_captcha():
     print("Generating captcha...")
-    # client = genai.Client()
-    # response = client.models.generate_content(
-    #     model="gemini-2.5-flash",
-    #     contents=prompt,
-    # )
     response = run_manager_agent()
     print("Captcha generated.")
-    return HTMLResponse(response.text)
+    return HTMLResponse(response)

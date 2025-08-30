@@ -7,10 +7,13 @@ Code:
 go_to('github.com/trending')
 ```<end_code>
 
-You can directly click clickable elements by inputting the text that appears on them.
+IMPORTANT NOTE:
+The game is in a canvas with no searchable elements.
+Use the exact coordinates of the screen for clicking interaction.
+ONLY directly click clickable elements by inputting the text that appears on them.
 Code:
 ```py
-click("Top products")
+click(Point(200, 300))
 ```<end_code>
 
 If it's a link:
@@ -42,19 +45,23 @@ Code:
 if Text('Accept cookies?').exists():
     click('I accept')
 ```<end_code>
+
+You can get console logs by using
+
 """
 
 evaluate_web_game_instructions ="""
-Please navigate to file:///private/tmp/index.html and check if the web game is functioning correctly.
+Please navigate to file:///private/tmp/index.html and visually check if the game looks accessible.
+
+DO NOT interact with the game with clicks, swipes, or any other form of input.
 
 This web game acts as a CAPTCHA to verify that the user is a human.
 
-1. It should be fully interactive, allowing users to play the game without any issues.
-2. All game elements should be visible and accessible.
-3. The game should have clear and intuitive instructions for playing.
-4. There should be no console errors or broken functionality.
-5. The game should be solvable for a human within 1 minute.
+1. All game elements should be visible and accessible.
+2. The game should have clear and intuitive instructions for playing with intuitive touch controls specified.
+3. There should be no console errors or broken functionality.
+4. The game should look solvable for a human within 1 minute.
 
-Please give feedback on the game's functionality and any issues encountered during testing.
+Please give feedback on the game's functionality and any issues identitfied.
 """
 

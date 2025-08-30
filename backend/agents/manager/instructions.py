@@ -22,7 +22,7 @@ Please ensure the game follows these requirements:
 
 1. It should be fully interactive, allowing users to play the game without any issues.
 2. All game elements should be visible and accessible.
-3. The game should have clear and intuitive instructions for playing.
+3. The game should have clear and intuitive instructions for playing with intuitive touch controls specified.
 4. There should be no console errors or broken functionality.
 5. The game should be solvable for a human within 1 minute.
 6. This web game should be viewed in a mobile viewport with aspect ratio 9:16.
@@ -32,4 +32,8 @@ Please DO NOT USE open() in python, use the write_file tool instead.
 Please test the game thoroughly before submitting the final answer.
 
 Please generate the game before calling evaluate_captcha_game_tool.
+
+Please use test-driven development with prints to console.log() and asserts to validate the game behavior.
+You can see the console logs with the tool provided: get_console_log_tool.
+Iteratively develop the game until it is tested to work as expected.
 """
