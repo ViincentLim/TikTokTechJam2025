@@ -28,19 +28,19 @@ function IconButtonColumn() {
     >
       <image
         src={ProfileIcon}
-        style="width:60px;height:60px;margin:5px;padding:1px"
+        style="width:55px;height:55px;margin:5px;padding:1px"
       ></image>
 
-      <image src={HeartIcon} style="width:55px;height:55px;margin:5px;padding:3px"></image>
+      <image src={HeartIcon} style="width:40px;height:40px;margin:10px;padding:3px"></image>
 
       <image
         src={MessageIcon}
-        style="width:60px;height:60px;margin:5px;padding:2px"
+        style="width:40px;height:40px;margin:10px;padding:2px"
       ></image>
 
-      <image src={SaveIcon} style="width:50px;height:45px;margin:5px;padding:2px"></image>
+      <image src={SaveIcon} style="width:35px;height:35px;margin:10px;padding:2px"></image>
 
-      <image src={ShareIcon} style="width:55px;height:55px;margin:5px;padding:4px"></image>
+      <image src={ShareIcon} style="width:40px;height:40px;margin:10px;padding:4px"></image>
     </view>
   );
 }

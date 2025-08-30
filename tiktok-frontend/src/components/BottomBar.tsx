@@ -74,8 +74,8 @@ export default function BottomBar({height}: {
                 </view>
             </view>
 
-            <IconButton imageSrc={InboxIcon} label={'Icon'}/>
-            <IconButton imageSrc={AccountIcon} label={'Profile'}></IconButton>
+            <IconButton imageSrc={InboxIcon} label={'Inbox'}/>
+            <IconButton imageSrc={AccountIcon} label={'Profile'}/>
         </view>
     );
 }   
