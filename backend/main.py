@@ -2,8 +2,9 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from starlette.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
+from google import genai
 
-from genai import client
+from agents.manager.agent import run_manager_agent
 
 app = FastAPI()
 
@@ -37,9 +38,11 @@ with open("./prompts/generate_captcha.md", "r") as f:
 @app.get("/captcha", response_class=HTMLResponse)
 async def get_captcha():
     print("Generating captcha...")
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt,
-    )
+    # client = genai.Client()
+    # response = client.models.generate_content(
+    #     model="gemini-2.5-flash",
+    #     contents=prompt,
+    # )
+    response = run_manager_agent()
     print("Captcha generated.")
     return HTMLResponse(response.text)
