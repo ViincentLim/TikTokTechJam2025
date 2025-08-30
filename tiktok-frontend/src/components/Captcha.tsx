@@ -1,8 +1,12 @@
 import WebView from "./native-elements/WebView.js";
 import {useState} from '@lynx-js/react';
+import { useStore } from "../store.js";
+
 
 export default function Captcha() {
     let [success, setSuccess] = useState(false);
+    const { toggle} = useStore();
+
 
     return (
         <view style={{
@@ -16,7 +20,7 @@ export default function Captcha() {
                 width: '100%',
                 height: '100%',
             }} url="http://localhost:9090/"
-                bindgameover={setSuccess}
+                bindgameover={()=>{setSuccess;toggle;}}
             >
             {/* @ts-ignore - web-view is a valid Lynx custom element*/}
             </web-view>

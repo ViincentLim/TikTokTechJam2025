@@ -80,7 +80,7 @@ function Header() {
 }
 
 export default function Popup() {
-  const { currentId, toggle, badges, incrBadge } = useStore();
+  const { currentId, toggle, badges, incrBadge} = useStore();
   const [showCaptcha, setShowCaptcha] = useState(false);
   const badgeEntries = Object.entries(badges[currentId]);
   // bindtap to toggle for the entire popup element to fix bug where popup closes when anywhere on popup is clicked
@@ -335,6 +335,7 @@ export default function Popup() {
         )}
 
         {/* {captcha page} */}
+        <Captcha />
 
       </view>
     </view>
