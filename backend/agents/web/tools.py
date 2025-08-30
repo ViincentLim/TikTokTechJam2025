@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -31,8 +32,19 @@ if os.getenv("CHROME_OPTIONS"):
     for option in os.getenv("CHROME_OPTIONS").split():
         chrome_options.add_argument(option)
 
-# Initialize the browser
-driver = helium.start_chrome(headless=True, options=chrome_options)
+# Set Chrome binary path for Chromium
+chrome_options.binary_location = "/usr/bin/chromium"
+
+# Initialize the browser manually to avoid helium's automatic detection
+try:
+    # Try to create driver manually first
+    service = Service(executable_path="/usr/bin/chromedriver")
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    print("Successfully initialized Chrome driver manually")
+except Exception as e:
+    print(f"Manual driver initialization failed: {e}")
+    # Fallback to helium
+    driver = helium.start_chrome(headless=True, options=chrome_options)
 
 @tool
 def search_item_ctrl_f(text: str, nth_result: int = 1) -> str:
@@ -68,7 +80,6 @@ def close_popups() -> str:
 # Set up screenshot callback
 def save_screenshot(memory_step: ActionStep, agent: CodeAgent) -> None:
     sleep(1.0)  # Let JavaScript animations happen before taking the screenshot
-    driver = helium.get_driver()
     current_step = memory_step.step_number
     if driver is not None:
         for previous_memory_step in agent.memory.steps:  # Remove previous screenshots for lean processing
