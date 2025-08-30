@@ -1,5 +1,9 @@
-import AutoplayVideo from "./native-elements/AutoplayVideo.js"; // yet to be implemented
+// import AutoplayVideo from "./native-elements/AutoplayVideo.js"; // yet to be implemented
 import BadgesMainPageUI from "./BadgesMainPageUI.js";
+import { useStore } from "../store.js";
+
+type NativeVideoProps = {playThisVideo:boolean}
+
 
 const ProfileIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/profile.53750314.png?token=GHSAT0AAAAAADIVE6YWZX5NIXSWFX52B6IA2FSXF5Q';
 const ShareIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/share.82c0f18a.png?token=GHSAT0AAAAAADIVE6YWT2X6F5OIS7YDLVDW2FSXJZA';
@@ -96,8 +100,11 @@ function Overlay({ id }: OverlayProps) {
 
 //this will have the SHORT VIDEO UI + autoplay video
 export default function VideoComponent({ id, videoUrl }: VideoProps) {
+  // const { playingVideo } = useStore();
   return (
     <view
+      exposure-id={id}
+      exposure-area='75%'
       style={{
         height: "100%",
         width: "100%",
@@ -127,8 +134,12 @@ export default function VideoComponent({ id, videoUrl }: VideoProps) {
             zIndex: "0",
           }}
         >
-          {/* add videoUrl prop to AutoplayVideo */}
-          <AutoplayVideo />
+          {/* <AutoplayVideo playThisVideo={playingVideo==id}/> */}
+
+          {/* @vincent */}
+          {/* @ts-ignore - video is a valid Lynx custom element*/}
+          {/* <video id={`video-${id}`} src={videoUrl}/> */}
+          {/* @vincent */}
         </view>
       </view>
     </view>

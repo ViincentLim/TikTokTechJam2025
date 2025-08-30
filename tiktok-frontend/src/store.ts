@@ -4,17 +4,20 @@ type State = {
   isOpen: boolean;
   badges: Record<string, Record<number, number>>;
   currentId: string;
+  // playingVideo: string;
 };
 
 type Toggle = {
   toggle: () => void;
   incrBadge: (userId: string, badgeType: number) => void;
   setCurrentId: (id: string) => void;
+  // setPlayingVideo: (videoID: string) => void;
 };
 
 export const useStore = create<State & Toggle>((set) => ({
   isOpen: false,
   currentId: "",
+  // playingVideo:'',
   badges: {
     video1: { 1: 5, 2: 3, 3: 0, 4: 1, 5: 5, 6: 8 },
     video2: { 1: 0, 2: 0, 3: 0, 4: 0 },
@@ -22,6 +25,7 @@ export const useStore = create<State & Toggle>((set) => ({
   },
   toggle: () => set((state) => ({ ...state, isOpen: !state.isOpen })),
   setCurrentId: (id) => set((state) => ({ ...state, currentId: id })),
+  // setPlayingVideo: (videoID) => set((state) => ({ ...state, playingVideo: videoID })),
   incrBadge: (userId, badgeType) =>
     set((state) => {
       const userBadges = state.badges[userId] || {};
