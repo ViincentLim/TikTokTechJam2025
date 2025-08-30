@@ -26,17 +26,12 @@ export default function BottomBar({height}: {
         <view
             style={{
                 height: height,
-                background: 'grey',
+                background: 'black',
                 display: 'flex',
-                // flexDirection:'row',
                 padding: '10px',
                 alignItems: 'center',
-                // alignContent: "center",
-                // justifySelf: 'center',
                 justifyContent: 'space-around',
-                // justifyItems:'center',
-                fontSize: 'x-small', //test this
-                // textAlign: 'center'
+                fontSize: 'x-small',
             }}>
 
             <IconButton imageSrc={HomeIcon} label={'Home'}/>
