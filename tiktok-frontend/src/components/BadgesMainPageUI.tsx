@@ -3,7 +3,7 @@ import Popup from "./Popup.js";
 import Button from "./Button.js";
 import { useStore } from "../store.js";
 import { badgeData } from "../constants.js";
-import PlusIcon from '../assets/misc-icons/plus.png';
+const PlusIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/plus.bf988428.png?token=GHSAT0AAAAAADIVE6YWYXZUO36UIR7TRMOG2FSWR2Q';
 
 
 type BadgesProps = {
