@@ -5,7 +5,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && \
-    apt-get install -y libnss3 libatk-bridge2.0-0 libgtk-3-0 libxss1 libasound2 libgbm1 libxshmfence1 && \
+    apt-get install -y libnss3 libatk-bridge2.0-0 libgtk-3-0 libxss1 libasound2 libgbm1 libxshmfence1 chromium && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
@@ -18,4 +18,4 @@ RUN uv sync
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "npx @playwright/mcp@latest --port 8931 & uv run --env-file .env fastapi run"]
+CMD ["sh", "-c", "uv run --env-file .env fastapi run"]

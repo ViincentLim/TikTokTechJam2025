@@ -5,7 +5,14 @@ Use only simple shapes and geometries – no external artwork.
 
 The game should be winnable or loseable in 15 seconds or less.
 
-When the game ends, call console.log({win: true}) if the player wins, or console.log({win: false}) if the player loses.
+When the game ends, call onGameOver({win: true}) if the player wins, or onGameOver({win: false}) if the player loses.
+
+onGameOver is
+
+function onGameOver(success) {
+    window.webkit?.messageHandlers?.onGameOver?.postMessage(success);
+    window.parent.postMessage(success, "*");
+}
 
 Please create the html file in /private/tmp/index.html with the tool before uploading the file to the browser with playwright.
 
