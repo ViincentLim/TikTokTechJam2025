@@ -1,0 +1,18 @@
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        /* start below the screen */
+        opacity: 0;
+        /* optional fade-in */
+    }
+
+    to {
+        transform: translateY(0);
+        /* end in normal position */
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease-out forwards;
+}
