@@ -16,10 +16,12 @@ const PopupContext = createContext(null);
 
 function BadgeIcon({ type, count }: BadgeIconProps) {
   const iconMap: Record<number, string> = {
-    1: "💎",
-    2: "🏆",
-    3: "💎",
-    4: "🏆",
+    1: "🏆",
+    2: "🎖️",
+    3: "🏅",
+    4: "🥇",
+    5: "🥈",
+    6: "🥉",
   };
   const icon = iconMap[type] || "❓";
 
@@ -45,7 +47,7 @@ function BadgeIcon({ type, count }: BadgeIconProps) {
       >
         <text>{icon}</text>
 
-        <text style={{ marginLeft: "2px", fontSize: "15px", color: "white" }}>
+        <text style={{ marginLeft: "2px", fontSize: "14px", color: "white" }}>
           x{count}
         </text>
       </view>
@@ -78,20 +80,18 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
         style={{
           padding: "8px",
           color: "white",
-          margin: "4px",
+          // margin: "4px",
           borderRadius: "24px", // More pronounced rounding for individual badges
-          flexDirection: "row",
+          // flexDirection: "row",
           display: "flex", // Ensure content inside BadgeIcon is also a row
-          alignItems: "center",
+          // alignItems: "center",
           justifyContent: "center",
           // minWidth: '100px', // Give a minimum width for consistent sizing
           // minHeight: '80px', // Give a fixed height
-          fontSize: "10px", // Adjust font size for the icon
-          fontWeight: "bold",
+          backgroundColor: "rgba(190, 190, 190, 0.35)",
         }}
       >
-        <text style={{ fontSize: "40px" }}>🎖️</text>{" "}
-        {/* Wrap the icon in a <text> component for proper sizing */}
+        <text style={{fontSize: "14px", color: "rgba(255, 255, 255, 0.6)"}}>🏅Gift a badge </text>
       </view>
     );
   }
@@ -115,7 +115,7 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
           justifyContent: "flex-start",
           display: "flex",
           padding: "4px",
-          backgroundColor: "rgba(243, 204, 9, 0.5)",
+          backgroundColor: "rgba(190, 190, 190, 0.35)",
           borderRadius: "25px",
           // minHeight: '100px',
           // width: 'min-content',
@@ -129,7 +129,7 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
         {remainingCount > 0 && (
           <view
             style={{
-              padding: "8px",
+              // padding: "8px",
               color: "black",
               margin: "4px",
               borderRadius: "24px", // More pronounced rounding for individual badges
@@ -142,9 +142,7 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
               fontWeight: "bold",
             }}
           >
-            <text style={{ fontSize: "50px", color: "white" }}>
-              +{remainingCount}
-            </text>
+            <text style={{ fontSize: "14px", fontWeight:'600', color: "white" }}>+{remainingCount}</text>
           </view>
         )}
       </Button>

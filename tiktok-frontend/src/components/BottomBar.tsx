@@ -38,13 +38,40 @@ export default function BottomBar({height}: {
             <IconButton imageSrc={StoreIcon} label={'Store'}/>
 
             <view style={{
-                background: 'white',
+                position:'relative',
                 height: '40px', width: '58px',
-                justifyContent: 'center', alignItems: 'center',
-                borderRadius: '10px',
-                marginTop: '-10px'
-            }}>
-                <image src={PlusIcon} style="height:35px;width:35px;"></image>
+                justifyContent:'center',
+                alignItems:'center'
+            }} >
+                <view style={{
+                    background: '#00fffbff',
+                    height: '40px', width: '55px',
+                    borderRadius: '10px',
+                    marginTop: '-10px',
+                    right:'6px',
+                    zIndex:'99',
+                    position:'absolute'
+                }}></view>
+                <view style={{
+                    background: '#ff0000ff',
+                    height: '40px', width: '55px',
+                    borderRadius: '10px',
+                    marginTop: '-10px',
+                    left:'6px',
+                    zIndex:'99',
+                    position:'absolute'
+                }}></view>
+                <view style={{
+                    background: 'white',
+                    height: '40px', width: '55px',
+                    justifyContent: 'center', alignItems: 'center',
+                    borderRadius: '10px',
+                    marginTop: '-10px',
+                    zIndex:'100',
+                    position:'absolute'
+                }}>
+                    <image src={PlusIcon} style="height:35px;width:35px;"></image>
+                </view>
             </view>
 
             <IconButton imageSrc={InboxIcon} label={'Icon'}/>

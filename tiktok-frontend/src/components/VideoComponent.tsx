@@ -28,19 +28,19 @@ function IconButtonColumn() {
     >
       <image
         src={ProfileIcon}
-        style="width:60px;height:60px;margin:5px;"
+        style="width:60px;height:60px;margin:5px;padding:1px"
       ></image>
 
-      <image src={HeartIcon} style="width:55px;height:55px;margin:5px;"></image>
+      <image src={HeartIcon} style="width:55px;height:55px;margin:5px;padding:3px"></image>
 
       <image
         src={MessageIcon}
-        style="width:60px;height:60px;margin:5px;"
+        style="width:60px;height:60px;margin:5px;padding:2px"
       ></image>
 
-      <image src={SaveIcon} style="width:50px;height:45px;margin:5px;"></image>
+      <image src={SaveIcon} style="width:50px;height:45px;margin:5px;padding:2px"></image>
 
-      <image src={ShareIcon} style="width:55px;height:55px;margin:5px;"></image>
+      <image src={ShareIcon} style="width:55px;height:55px;margin:5px;padding:4px"></image>
     </view>
   );
 }
@@ -73,7 +73,7 @@ function Overlay({ id }: OverlayProps) {
         <text
           style={{
             fontSize: "20px",
-            fontWeight: "600",
+            fontWeight: "500",
             marginLeft: "10px",
             marginBottom: "3px",
             marginTop: "5px",
@@ -82,7 +82,7 @@ function Overlay({ id }: OverlayProps) {
           Creator Name
         </text>
         <text
-          style={{ fontSize: "17px", marginLeft: "10px", marginBottom: "10px" }}
+          style={{ fontSize: "16px", marginLeft: "10px", marginBottom: "10px" }}
         >
           Video Description
         </text>
@@ -101,14 +101,12 @@ export default function VideoComponent({ id, videoUrl }: VideoProps) {
       style={{
         height: "100%",
         width: "100%",
-        background: "red",
+        background: "#383838ff",
       }}
     >
       <view
         style={{
           position: "relative",
-          // display:'block',
-          // background:'red',
           height: "100%",
           width: "100%",
         }}
@@ -127,7 +125,6 @@ export default function VideoComponent({ id, videoUrl }: VideoProps) {
             height: "100%",
             width: "100%",
             zIndex: "0",
-            // background:'red',
           }}
         >
           {/* add videoUrl prop to AutoplayVideo */}

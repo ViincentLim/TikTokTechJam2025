@@ -3,10 +3,11 @@ import {useState} from '@lynx-js/react';
 import "./App.css";
 import BottomBar from "./components/BottomBar.js";
 import VideoComponent from "./components/VideoComponent.js";
+import LivestreamComponent from './components/LivestreamComponent.js';
 import { videos } from "./constants.js";
 
 // import RechargePopup from "./components/RechargePopup.jsx"; // yet to implment
-const BOTTOM_BAR_HEIGHT = "56px";
+const BOTTOM_BAR_HEIGHT = "85px";
 
 export function App(props: { onRender?: () => void }) {
     //const [currentPage, setCurrentPage] = useState('doomscroll');
@@ -24,28 +25,6 @@ export function App(props: { onRender?: () => void }) {
         }}
       >
         {/* MAIN SCROLLING PAGE */}
-        {/*<scroll-view style={{background: 'red', height: `calc(100vh - ${BOTTOM_BAR_HEIGHT})`}}>*/}
-        {/*    /!*TODO: This should be video element, that can be scrolled later*!/*/}
-        {/*    <view style={{*/}
-        {/*        width: '100vw',*/}
-        {/*        height: `calc(100vh - ${BOTTOM_BAR_HEIGHT})`,*/}
-        {/*        position: 'relative',*/}
-        {/*        background: 'pink',*/}
-        {/*    }}>*/}
-        {/*        <view style={{*/}
-        {/*            position: 'absolute',*/}
-        {/*            bottom: 0,*/}
-        {/*            left: 0,*/}
-        {/*            right: 0,*/}
-        {/*            display: 'flex',*/}
-        {/*        }}>*/}
-        {/*            <Badges videoBadges={videoBadges.video1}/>*/}
-        {/*            <view></view>*/}
-        {/*        </view>*/}
-        {/*    </view>*/}
-        {/*</scroll-view>*/}
-        {/*TODO: This should be video element, that can be scrolled later*/}
-
         {/* NOTE / TODO: will have to hardcode the 4-5 example videos as some of these videos will have the livestreamUI instead of the videoUI */}
         {videos.map((video) => {
           return (
@@ -56,8 +35,13 @@ export function App(props: { onRender?: () => void }) {
                 background: "pink",
               }}
             >
-              <VideoComponent id={video.id} videoUrl={video.videoUrl} />
-              {/* <LivestreamComponent videoBadges={video.videoBadges}/> */}
+              {video.livestream ? 
+                (<LivestreamComponent id={video.id} videoUrl={video.videoUrl} />) :
+                (<VideoComponent id={video.id} videoUrl={video.videoUrl} />)
+              }
+
+              {/* <VideoComponent id={video.id} videoUrl={video.videoUrl} /> */}
+
             </view>
           );
         })}
