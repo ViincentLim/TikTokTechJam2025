@@ -3,7 +3,7 @@ import { useStore } from "../store.js";
 import "../css/popupSlide.css";
 import "../css/gridLayout.css";
 import Captcha from "./Captcha.js";
-import { badgeData } from "../constants.js";
+import { badgeData, videos } from "../constants.js";
 const Arrow = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/arrow.aee54ba7.png?token=GHSAT0AAAAAADIVE6YXTQEVNTMPZUK7KGN22FSW7VA';
 const Coin = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/coin.png?token=GHSAT0AAAAAADIVE6YWR7OSBZ6CCOPATSL42FSXE6A';
 
@@ -11,38 +11,45 @@ type PopupProps = {
   id:string;
 };
 
-const BadgeWrapper = ({ url }: any) => {
+const BadgeWrapper = ({ badgeId, url}: any) => {
   return (
     <view className="Logo" style={{ display: "flex", justifyContent: "center" }}>
-      <image
+      {/* <image
         src={url}
         style={{ width: "90px", height: "90px", objectFit: "contain" }}
-      />
+      /> */}
+      <text  style={{fontSize:'30px', textAlign:'center'}}>{badgeData[badgeId].icon}</text>
     </view>
   );
 };
 
 
 // TODO: add href/function that is clickable
-const TopBadge = ({ url, quantity, placeholderText }: any) => {
+const TopBadge = ({ url, quantity, placeholderText, badgeId}: any) => {
   return (
+    
     <view
       style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        // background:'black'
       }}
     >
-      <BadgeWrapper url={url} />
-      <text style={{ color: "#444", fontSize: "16px", marginTop: "4px" }}>
+      {quantity > 0 ? (<BadgeWrapper badgeId={badgeId} url={url} />) : <></>}
+      
+      <text style={{ color: "#444", fontSize: "16px", marginTop: "4px", textAlign:'center' }}>
         {quantity > 0 ? `x${quantity}` : placeholderText}
       </text>
+
+
+
     </view>
   );
 };
 
 // TODO: add href/function that is clickable
-export const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) => {
+export const BottomBadge = ({ url, desc, cost, mediaName, id, increment, badgeId }: any) => {
   return (
     <view className="BottomBadge" bindtap={() => increment(mediaName, id)} style={{
       width: "120px",
@@ -50,7 +57,7 @@ export const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) 
       flexDirection: "column",
       alignItems: "center",
     }}>
-      <BadgeWrapper url={url} />
+      <BadgeWrapper badgeId={badgeId} url={url} />
 
       <text
         style={{
@@ -263,6 +270,7 @@ export default function Popup() {
                 url="/path/to/first-award.png" // placeholder image
                 quantity={0}
                 placeholderText="No badges awarded yet...be the first!"
+                badgeId={0}
               />
 
               :
@@ -275,6 +283,7 @@ export default function Popup() {
                   url={badgeData[parseInt(badgeID)].url}
                   quantity={badges[currentId][parseInt(badgeID)]}
                   style={{ marginRight: 8 }}
+                  badgeId={badgeID}
 
                 />
               ) : (<></>)
@@ -309,6 +318,7 @@ export default function Popup() {
                         mediaName={currentId}
                         id={key}
                         increment={incrBadge}
+                        badgeId={key}
                       />
                     </view>
                   ))}
