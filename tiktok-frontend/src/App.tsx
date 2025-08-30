@@ -82,7 +82,8 @@ export function App(props: { onRender?: () => void }) {
             <view
               style={{
                 width: "100%",
-                height: `calc(100% - ${BOTTOM_BAR_HEIGHT})`,
+                height:'100%',
+                // height: `calc(100% - ${BOTTOM_BAR_HEIGHT})`,
                 background: "pink",
               }}
             >
