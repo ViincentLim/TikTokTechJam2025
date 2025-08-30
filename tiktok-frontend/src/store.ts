@@ -16,7 +16,7 @@ export const useStore = create<State & Toggle>((set) => ({
   isOpen: false,
   currentId: "",
   badges: {
-    video1: { 1: 5, 2: 3, 3: 0, 4: 1 },
+    video1: { 1: 5, 2: 3, 3: 0, 4: 1, 5: 5, 6: 8 },
     video2: { 1: 0, 2: 0, 3: 0, 4: 0 },
     livestream1: { 1: 1, 2: 1, 3: 1, 4: 1 },
   },
