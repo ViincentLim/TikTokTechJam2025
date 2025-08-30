@@ -121,10 +121,11 @@ export default function LivestreamComponent({ id, videoUrl }: VideoProps){
             </view>
 
             {/* Native Autoplay Video Component*/}
-            <view style={{
+            {/* @ts-ignore - video is a valid Lynx custom element*/}
+            <feed-video style={{
                 position:"absolute",
                 height: "100%",
-                width: '100vw',
+                width: '100%',
                 zIndex:"1",
                 // background:'red',
             }}>
@@ -134,7 +135,8 @@ export default function LivestreamComponent({ id, videoUrl }: VideoProps){
                 {/* @ts-ignore - video is a valid Lynx custom element*/}
                 {/* <video id={`video-${id}`} src={videoUrl}/> */}
                 {/* @vincent */}
-            </view>
+                {/* @ts-ignore - video is a valid Lynx custom element*/}
+            </feed-video>
 
         </view>
     )
