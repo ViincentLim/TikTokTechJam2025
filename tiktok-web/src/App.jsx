@@ -12,11 +12,6 @@ const App = () => {
           class="lynx-view"
           url="/main.web.bundle"
         ></lynx-view>
-
-        <div className="side-buttons">
-          <button>🔗</button>
-          <button>❤️</button>
-        </div>
       </div>
     </div>
   );
