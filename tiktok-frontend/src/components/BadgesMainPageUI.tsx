@@ -2,6 +2,7 @@ import { createContext } from "@lynx-js/react";
 import Popup from "./Popup.js";
 import Button from "./button.js";
 import { useStore } from "../store.js";
+import { badgeData } from "../constants.js";
 
 type BadgesProps = {
   id: string;
@@ -12,18 +13,18 @@ type BadgeIconProps = {
   count: number;
 };
 
-const PopupContext = createContext(null);
+// const PopupContext = createContext(null);
 
 function BadgeIcon({ type, count }: BadgeIconProps) {
-  const iconMap: Record<number, string> = {
-    1: "🏆",
-    2: "🎖️",
-    3: "🏅",
-    4: "🥇",
-    5: "🥈",
-    6: "🥉",
-  };
-  const icon = iconMap[type] || "❓";
+  // const iconMap: Record<number, string> = {
+  //   1: "🏆",
+  //   2: "🎖️",
+  //   3: "🏅",
+  //   4: "🥇",
+  //   5: "🥈",
+  //   6: "🥉",
+  // };
+  const icon = badgeData[type]['icon'] || "❓";
 
   return (
     <view
@@ -122,7 +123,7 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
           // width: 'auto'
         }}
       >
-        {isOpen && <Popup />}
+        {isOpen && <Popup/>}
         {visibleBadges.map(([typeStr, count]) => (
           <BadgeIcon key={typeStr} type={Number(typeStr)} count={count} />
         ))}

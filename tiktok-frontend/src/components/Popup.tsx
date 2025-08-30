@@ -1,6 +1,12 @@
 import { useState } from "react";
 import Arrow from "../assets/arrow.png";
+import Coin from "../assets/misc-icons/coin.png"
 import { useStore } from "../store.js";
+import { badgeData } from "../constants.js";
+
+type PopupProps = {
+  awardedBadges: Record<number,number>;
+};
 
 const BadgeWrapper = ({ url }: any) => {
   return (
@@ -21,11 +27,15 @@ const TopBadge = ({ url, quantity }: any) => {
 };
 
 // TODO: add href/function that is clickable
-const BottomBadge = ({ url, desc, mediaName, id, increment }: any) => {
+const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) => {
   return (
     <view className="BottomBadge" bindtap={() => increment(mediaName, id)}>
       <BadgeWrapper url={url} />
       <text style={{ color: "#444", fontSize: 16 }}>{desc}</text>
+      <view style={{alignSelf:'center', display:'flex', alignItems:'center'}}>
+        <image src={Coin} style='height:15px;width:15px;margin:5px;'></image>
+        <text style={{ color: "#444", fontSize: 12 }}>{cost}</text>
+      </view>
     </view>
   );
 };
@@ -37,18 +47,19 @@ const topBadgeList = [
   { quantity: 1, url: Arrow, id: 4 },
 ];
 
-const bottomBadgeList = [
-  { desc: "Bottom Badge 1", url: Arrow, id: 1 },
-  { desc: "Bottom Badge 2", url: Arrow, id: 2 },
-  { desc: "Bottom Badge 3", url: Arrow, id: 3 },
-  { desc: "Bottom Badge 4", url: Arrow, id: 4 },
-  { desc: "Bottom Badge 2", url: Arrow, id: 5 },
-  { desc: "Bottom Badge 3", url: Arrow, id: 6 },
-  { desc: "Bottom Badge 4", url: Arrow, id: 7 },
-  { desc: "Bottom Badge 2", url: Arrow, id: 8 },
-  { desc: "Bottom Badge 3", url: Arrow, id: 9 },
-  { desc: "Bottom Badge 4", url: Arrow, id: 10 },
-];
+// const bottomBadgeList = [
+//   { desc: "Bottom Badge 1", url: Arrow, id: 1 },
+//   { desc: "Bottom Badge 2", url: Arrow, id: 2 },
+//   { desc: "Bottom Badge 3", url: Arrow, id: 3 },
+//   { desc: "Bottom Badge 4", url: Arrow, id: 4 },
+//   { desc: "Bottom Badge 2", url: Arrow, id: 5 },
+//   { desc: "Bottom Badge 3", url: Arrow, id: 6 },
+//   { desc: "Bottom Badge 4", url: Arrow, id: 7 },
+//   { desc: "Bottom Badge 2", url: Arrow, id: 8 },
+//   { desc: "Bottom Badge 3", url: Arrow, id: 9 },
+//   { desc: "Bottom Badge 4", url: Arrow, id: 10 },
+// ];
+;
 
 export default function Popup() {
   const { currentId, toggle, badges, incrBadge } = useStore();
@@ -155,8 +166,11 @@ export default function Popup() {
             ))}
           </view>
           <view style={{ marginTop: 12 }}>
+
             <view style={{ display: "flex", flexWrap: "wrap" }}>
-              {bottomBadgeList.map((badge, idx) => (
+              
+
+              {/* {bottomBadgeList.map((badge, idx) => (
                 <BottomBadge
                   key={idx}
                   url={badge.url}
@@ -165,7 +179,20 @@ export default function Popup() {
                   id={badge.id}
                   increment={incrBadge}
                 />
+              ))} */}
+
+              {Object.entries(badgeData).map(([key, value]) => (
+                <BottomBadge
+                  key={key}
+                  url={value.url}
+                  desc={value.desc}
+                  cost={value.cost}
+                  mediaName={currentId}
+                  id={key}
+                  increment={incrBadge}
+                />
               ))}
+
             </view>
           </view>
         </view>
