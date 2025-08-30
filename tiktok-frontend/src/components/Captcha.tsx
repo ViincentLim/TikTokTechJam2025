@@ -1,10 +1,9 @@
-import WebView from "./native-elements/WebView.js";
 import {useState} from '@lynx-js/react';
 import { useStore } from "../store.js";
 
 
 export default function Captcha() {
-    let [success, setSuccess] = useState(false);
+    let [success, setSuccess] = useState<boolean | null>(null);
     const { toggle} = useStore();
 
 
@@ -12,7 +11,7 @@ export default function Captcha() {
         <view style={{
             width: '100%',
             height: '100%',
-            background: success ? "#00ffff88" : "#ff000088",
+            background: success ? '#00ffff88' : '#ff000088',
         }}>
             <text>Solve the captcha</text>
             {/* @ts-ignore - web-view is a valid Lynx custom element*/}
@@ -22,8 +21,8 @@ export default function Captcha() {
             }} url="http://localhost:9090/"
                 bindgameover={()=>{setSuccess;toggle;}}
             >
-            {/* @ts-ignore - web-view is a valid Lynx custom element*/}
+                {/* @ts-ignore - web-view is a valid Lynx custom element*/}
             </web-view>
         </view>
-    )
+    );
 }
