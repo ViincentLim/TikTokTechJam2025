@@ -93,7 +93,7 @@ function Overlay({ id }: OverlayProps) {
       </view>
 
       {/* UI on the right - profile, heart, message, save, share*/}
-      <IconButtonColumn></IconButtonColumn>
+      <IconButtonColumn />
     </view>
   );
 }
@@ -108,7 +108,7 @@ export default function VideoComponent({ id, videoUrl }: VideoProps) {
       style={{
         height: "100%",
         width: "100%",
-        background: "#383838ff",
+        background: "#383838",
       }}
     >
       <view

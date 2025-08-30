@@ -16,8 +16,8 @@
 		2B94A3DD2D6614980060892C /* DemoLynxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94A3DC2D6614980060892C /* DemoLynxProvider.swift */; };
 		2BE49E032D7720F0000D068C /* main.lynx.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BE49E022D7720F0000D068C /* main.lynx.bundle */; };
 		2CC304F92E628D6900D2ADEA /* LynxWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC304F82E628D6900D2ADEA /* LynxWebView.m */; };
-		63972E0D34F86B0706325BCE /* libPods-Hello-Lynx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B67B2104D0445A811952B8 /* libPods-Hello-Lynx.a */; };
 		6EA704372E62A1F2005CFBF1 /* static in Resources */ = {isa = PBXBuildFile; fileRef = 6EA704352E62A1CE005CFBF1 /* static */; };
+		89573956B9B1C30C1595062A /* Pods_Hello_Lynx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8FB7B785762174C36C1C84 /* Pods_Hello_Lynx.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +35,9 @@
 		2CC304F72E628D6900D2ADEA /* LynxWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LynxWebView.h; sourceTree = "<group>"; };
 		2CC304F82E628D6900D2ADEA /* LynxWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LynxWebView.m; sourceTree = "<group>"; };
 		61CE2062BA0F77A3DF32F268 /* Pods-Hello-Lynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello-Lynx.release.xcconfig"; path = "Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx.release.xcconfig"; sourceTree = "<group>"; };
+		6E8FB7B785762174C36C1C84 /* Pods_Hello_Lynx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hello_Lynx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EA704352E62A1CE005CFBF1 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
 		72043EE1F9E3529358168057 /* Pods-Hello-Lynx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello-Lynx.debug.xcconfig"; path = "Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx.debug.xcconfig"; sourceTree = "<group>"; };
-		C4B67B2104D0445A811952B8 /* libPods-Hello-Lynx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hello-Lynx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63972E0D34F86B0706325BCE /* libPods-Hello-Lynx.a in Frameworks */,
+				89573956B9B1C30C1595062A /* Pods_Hello_Lynx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 		7225697D323AB6B76668D385 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C4B67B2104D0445A811952B8 /* libPods-Hello-Lynx.a */,
+				6E8FB7B785762174C36C1C84 /* Pods_Hello_Lynx.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 				2B94A3C12D6613730060892C /* Sources */,
 				2B94A3C22D6613730060892C /* Frameworks */,
 				2B94A3C32D6613730060892C /* Resources */,
-				AB185E27E0CB58373A5099D9 /* [CP] Copy Pods Resources */,
+				60DF4D8148802AAF3EEF2AB9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,25 +200,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AB185E27E0CB58373A5099D9 /* [CP] Copy Pods Resources */ = {
+		60DF4D8148802AAF3EEF2AB9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
