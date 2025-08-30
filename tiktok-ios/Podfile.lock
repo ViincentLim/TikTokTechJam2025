@@ -11,24 +11,33 @@ PODS:
   - libwebp/sharpyuv (1.5.0)
   - libwebp/webp (1.5.0):
     - libwebp/sharpyuv
-  - Lynx (3.4.0-rc.0):
-    - Lynx/Framework (= 3.4.0-rc.0)
-  - Lynx/Framework (3.4.0-rc.0):
+  - Lynx (3.4.0):
+    - Lynx/Framework (= 3.4.0)
+  - Lynx/Framework (3.4.0):
     - Lynx/ReleaseResource
     - PrimJS/napi/env
     - PrimJS/napi/jsc
     - PrimJS/napi/quickjs
     - PrimJS/quickjs (= 2.14.0-rc.1)
-  - Lynx/ReleaseResource (3.4.0-rc.0)
-  - LynxService/Http (3.4.0-rc.0):
-    - Lynx (= 3.4.0-rc.0)
-  - LynxService/Image (3.4.0-rc.0):
-    - Lynx (= 3.4.0-rc.0)
+  - Lynx/ReleaseResource (3.4.0)
+  - LynxService/Http (3.4.0):
+    - Lynx (= 3.4.0)
+  - LynxService/Image (3.4.0):
+    - Lynx (= 3.4.0)
     - SDWebImage (= 5.15.5)
     - SDWebImageWebPCoder (= 0.11.0)
-  - LynxService/Log (3.4.0-rc.0):
-    - Lynx (= 3.4.0-rc.0)
+  - LynxService/Log (3.4.0):
+    - Lynx (= 3.4.0)
   - PrimJS/log (2.14.0-rc.1)
+  - PrimJS/napi (2.14.0-rc.1):
+    - PrimJS/napi/adapter (= 2.14.0-rc.1)
+    - PrimJS/napi/core (= 2.14.0-rc.1)
+    - PrimJS/napi/env (= 2.14.0-rc.1)
+    - PrimJS/napi/jsc (= 2.14.0-rc.1)
+    - PrimJS/napi/quickjs (= 2.14.0-rc.1)
+  - PrimJS/napi/adapter (2.14.0-rc.1):
+    - PrimJS/napi/core
+    - PrimJS/napi/env
   - PrimJS/napi/core (2.14.0-rc.1)
   - PrimJS/napi/env (2.14.0-rc.1):
     - PrimJS/napi/core
@@ -47,23 +56,16 @@ PODS:
   - SDWebImageWebPCoder (0.11.0):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.15)
-  - XElement (3.4.0-rc.0):
-    - XElement/Behavior (= 3.4.0-rc.0)
-    - XElement/Input (= 3.4.0-rc.0)
-  - XElement/Behavior (3.4.0-rc.0):
-    - Lynx (= 3.4.0-rc.0)
-    - XElement/Input
-  - XElement/Input (3.4.0-rc.0):
-    - Lynx (= 3.4.0-rc.0)
 
 DEPENDENCIES:
-  - Lynx/Framework (= 3.4.0-rc.0)
-  - LynxService/Http (= 3.4.0-rc.0)
-  - LynxService/Image (= 3.4.0-rc.0)
-  - LynxService/Log (= 3.4.0-rc.0)
+  - Lynx/Framework (= 3.4.0)
+  - LynxService/Http (= 3.4.0)
+  - LynxService/Image (= 3.4.0)
+  - LynxService/Log (= 3.4.0)
+  - PrimJS/napi (= 2.14.0-rc.1)
+  - PrimJS/quickjs (= 2.14.0-rc.1)
   - SDWebImage (= 5.15.5)
   - SDWebImageWebPCoder (= 0.11.0)
-  - XElement (= 3.4.0-rc.0)
 
 SPEC REPOS:
   trunk:
@@ -73,17 +75,15 @@ SPEC REPOS:
     - PrimJS
     - SDWebImage
     - SDWebImageWebPCoder
-    - XElement
 
 SPEC CHECKSUMS:
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
-  Lynx: ac6519cb6aab8203b61dd2d3bab2e6102b07c12a
-  LynxService: 0f0cf40cbab3f1524d8913e02f155c4b98cec07d
+  Lynx: 86ef0be7eaa8741510d1204f388f4789719706c0
+  LynxService: 6c9235e651f1285b498bd572948cf6efdca90d75
   PrimJS: 0254a97a9fddf92d492a69dc8e98e62480bf79ff
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
   SDWebImageWebPCoder: 295a6573c512f54ad2dd58098e64e17dcf008499
-  XElement: d9bf37f880046b6bb47fc8afadb4aa665b175e50
 
-PODFILE CHECKSUM: 499aea7d214673bfa2d098ac219439ef73af675d
+PODFILE CHECKSUM: 5587dce5ff9b3357ab7de323f595aafc41c2c1fc
 
 COCOAPODS: 1.16.2
