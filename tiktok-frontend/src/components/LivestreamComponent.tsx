@@ -1,5 +1,9 @@
-import AutoplayVideo from './native-elements/AutoplayVideo.js' // yet to be implemented
+// import AutoplayVideo from './native-elements/AutoplayVideo.js' // yet to be implemented
 import BadgesMainPageUI from './BadgesMainPageUI.js'
+
+import { useStore } from "../store.js";
+
+type NativeVideoProps = {playThisVideo:boolean}
 
 
 const ProfileIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/profile.53750314.png?token=GHSAT0AAAAAADIVE6YWZX5NIXSWFX52B6IA2FSXF5Q';
@@ -17,12 +21,16 @@ type VideoProps = {
 
 //this will have the LIVESTREAM UI + autoplay video
 export default function LivestreamComponent({ id, videoUrl }: VideoProps){
+    // const { playingVideo } = useStore();
     return (
-        <view style={{
-            position:"relative",
-            height: "100%",
-            width: '100vw',
-            background: "#383838ff",
+        <view
+            exposure-id={id}
+            exposure-area='75%'
+            style={{
+                position:"relative",
+                height: "100%",
+                width: '100%',
+                background: "#383838ff",
         }}>
 
             {/* UI OVERLAY */}
@@ -120,7 +128,12 @@ export default function LivestreamComponent({ id, videoUrl }: VideoProps){
                 zIndex:"1",
                 // background:'red',
             }}>
-                <AutoplayVideo/>
+                {/* <AutoplayVideo playThisVideo={playingVideo==id}/> */}
+
+                {/* @vincent */}
+                {/* @ts-ignore - video is a valid Lynx custom element*/}
+                {/* <video id={`video-${id}`} src={videoUrl}/> */}
+                {/* @vincent */}
             </view>
 
         </view>

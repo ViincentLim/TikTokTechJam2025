@@ -55,4 +55,5 @@ Pods/
 **/fastlane/Preview.html
 **/fastlane/screenshots/**/*.png
 **/fastlane/test_output
-
+static/
+/main.lynx.bundle
