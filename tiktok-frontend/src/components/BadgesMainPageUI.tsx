@@ -1,6 +1,6 @@
 import { createContext } from "@lynx-js/react";
 import Popup from "./Popup.js";
-import Button from "./button.js";
+import Button from "./Button.js";
 import { useStore } from "../store.js";
 import { badgeData } from "../constants.js";
 
