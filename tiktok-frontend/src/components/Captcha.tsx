@@ -19,7 +19,10 @@ export default function Captcha() {
                 width: '100%',
                 height: '100%',
             }} url="http://localhost:9090/"
-                bindgameover={()=>{setSuccess;toggle;}}
+                bindgameover={(success: boolean)=>{
+                    setSuccess(success);
+                    toggle();
+                }}
             >
                 {/* @ts-ignore - web-view is a valid Lynx custom element*/}
             </web-view>
