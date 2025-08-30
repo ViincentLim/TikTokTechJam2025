@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useStore } from "../store.js";
 import "../css/popupSlide.css";
+import "../css/gridLayout.css";
 import Captcha from "./Captcha.js";
 import { badgeData } from "../constants.js";
+
 
 const Arrow = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/arrow.aee54ba7.png?token=GHSAT0AAAAAADIVE6YXTQEVNTMPZUK7KGN22FSW7VA';
 const Coin = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/coin.png?token=GHSAT0AAAAAADIVE6YWR7OSBZ6CCOPATSL42FSXE6A';
@@ -30,7 +32,7 @@ const TopBadge = ({ url, quantity, placeholderText }: any) => {
       }}
     >
       <BadgeWrapper url={url} />
-      <text style={{ color: "#444", fontSize: "14px", marginTop: "4px" }}>
+      <text style={{ color: "#444", fontSize: "16px", marginTop: "4px" }}>
         {quantity > 0 ? `x${quantity}` : placeholderText}
       </text>
     </view>
@@ -38,20 +40,57 @@ const TopBadge = ({ url, quantity, placeholderText }: any) => {
 };
 
 // TODO: add href/function that is clickable
-const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) => {
+export const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) => {
   return (
-    <view className="BottomBadge" bindtap={() => increment(mediaName, id)}>
+    <view className="BottomBadge" bindtap={() => increment(mediaName, id)} style={{
+      width: "120px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}>
       <BadgeWrapper url={url} />
-      <text style={{ color: "#444", fontSize: "16px" }}>{desc}</text>
-      <view
-        style={{ alignSelf: "center", display: "flex", alignItems: "center" }}
+
+      <text
+        style={{
+          flexShrink: 0,        // prevent shrinking into row below
+          flexWrap: "wrap",
+          color: "#444",
+          fontSize: "14px",
+          textAlign: "center"
+        }}
       >
-        <image src={Coin} style="height:15px;width:15px;margin:5px;"></image>
-        <text style={{ color: "#444", fontSize: "12px" }}>{cost}</text>
+        {desc}
+      </text>
+
+      <view
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 5,
+        }}
+      >
+        <image src={Coin} style={{ height: 15, width: 15 }} />
+        <text
+          style={{
+            flexShrink: 0,
+            flexWrap: "nowrap",
+            color: "#444",
+            fontSize: "12px",
+            textAlign: "center",
+          }}
+        >
+          {cost}
+        </text>
       </view>
     </view>
   );
 };
+
+
+
+
 
 // const topBadgeList = [
 //   { quantity: 1, url: Arrow, id: 1 },
@@ -87,16 +126,16 @@ export default function Popup() {
   return (
     <view
       style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100vh',
-          background: 'rgba(0,0,0,0.5)',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'end',
-          zIndex: 1000,
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
+        background: 'rgba(0,0,0,0.5)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'end',
+        zIndex: 1000,
       }}
       bindtap={toggle}
     >
@@ -119,7 +158,7 @@ export default function Popup() {
             height: "100%",
             boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
             position: "relative",
-            display: showCaptcha ? "none" : "flex",
+            // display: showCaptcha ? "none" : "flex",
             flexDirection: "column",
             // overflow: "hidden",
           }}
@@ -142,7 +181,7 @@ export default function Popup() {
             <text
               style={{ color: "#fff", fontSize: "24px", fontWeight: "bold" }}
             >
-              Badges
+              Send an Award
             </text>
             <view
               style={{
@@ -177,101 +216,88 @@ export default function Popup() {
             </view>
           </view>
 
-        <view style={{ padding: "0px 24px" }}>
-          {/* <text style={{ color: "#444", fontSize: '14px' }}>
-            Support your favourite creators by awarding a badge!
-          </text> */}
-          <scroll-view
+          <view
             style={{
-              display: "flex", padding: "8px 0", justifyContent: "center", width: "100%", scrollPaddingLeft: "12px", // ← adds left scroll padding
+              padding: "0px 24px",
+              display: "flex",
+              flexDirection: "column",
+              width: "100%",
             }}
-            scroll-x={true} // enable horizontal scrolling
-            show-scrollbar={false} // optional: hide scrollbar
           >
-            <view
+            <text style={{ color: "#444", fontSize: "16px" }}>
+              Support your favourite creators by awarding a badge!
+            </text>
+            <scroll-view
+              style={{
+                display: "flex",
+                paddingTop: "12px",
+                paddingLeft: "12px",       // ← offsets first element
+                paddingRight: "12px",      // optional, for last element
+                height: "150px",
+                flexDirection: "row",
+                justifyContent: "flex-start", // align items to left
+                width: "100%",
+                marginBottom: "12px",
+              }}
+              scroll-x={true} // enable horizontal scrolling
+              show-scrollbar={false} // optional: hide scrollbar
             >
-              {badgeEntries.every(([key, quantity]) => quantity === 0) ?
-                <TopBadge
-                  url="/path/to/first-award.png" // placeholder image
-                  quantity={0}
-                  placeholderText="No badges awarded yet...be the first!"
-                />
-                
-                : 
-
-                badgeEntries.map(([badgeID, quantity]) => 
-                quantity > 0 ?       
-                (
-                  <TopBadge
-                    key={badgeID}
-                    url={badgeData[parseInt(badgeID)].url}
-                    quantity={badges[currentId][parseInt(badgeID)]}
-                    style={{ marginRight: 8 }}
-                  />
-                ) : (<></>)
-                 
-              )}
-              {/* TODO SOME TYPE ISSUE HERE BTWN RECORD<> AND DICT, SO HAVE TO PARSEINT */}
-
-              {/* {Object.entries(badges[id]).filter((badge) => badges[currentId][badge.id] > 0).length > 0 ? (
-              topBadgeList
-                .filter((badge) => badges[currentId][badge.id] > 0)
-                .map((badge, index) => (
-                  <TopBadge
-                    key={badgeID}
-                    url={badge.url}
-                    quantity={badges[currentId][badge.id]}
-                    style={{ marginRight: 8 }}
-                  />
-                ))
-            ) : (
+              
+               {badgeEntries.every(([key, quantity]) => quantity === 0) ?
               <TopBadge
                 url="/path/to/first-award.png" // placeholder image
                 quantity={0}
-                placeholderText="Be the first!"
+                placeholderText="No badges awarded yet...be the first!"
               />
-            )}*/}
-            </view>
-            
-          </scroll-view>
-          {/* Divider line */}
-          <view
-            style={{
-              width: "100%",       // full width of the container
-              height: 1,           // 1px line
-              backgroundColor: "#ddd", // light gray line
-              margin: "12px 0",    // space above and below
-            }}
-          />
-          <view style={{ marginTop: 12 }}>
-
-            <view style={{ display: "flex", flexWrap: "wrap" }}>
-              
-
-              {/* {bottomBadgeList.map((badge, idx) => (
-                <BottomBadge
-                  key={idx}
-                  url={badge.url}
-                  desc={badge.desc}
-                  mediaName={currentId}
-                  id={badge.id}
-                  increment={incrBadge}
+              :
+              badgeEntries.map(([badgeID, quantity]) =>
+              quantity > 0 ?
+              (
+                <TopBadge
+                  key={badgeID}
+                  url={badgeData[parseInt(badgeID)].url}
+                  quantity={badges[currentId][parseInt(badgeID)]}
+                  style={{ marginRight: 8 }}
                 />
-              ))} */}
-
-                {Object.entries(badgeData).map(([key, value]) => (
-                  <BottomBadge
-                    key={key}
-                    url={value.url}
-                    desc={value.desc}
-                    cost={value.cost}
-                    mediaName={currentId}
-                    id={key}
-                    increment={incrBadge}
-                  />
-                ))}
-              </view>
+              ) : (<></>)
+            )}
+            </scroll-view>
+            {/* Divider line */}
+            <view
+              style={{
+                width: "100%", // full width of the container
+                height: "1px", // 1px line
+                backgroundColor: "#ddd", // light gray line
+                margin: "12px 0", // space above and below
+              }}
+            />
+            <view style={{ marginTop: "12px", height: "400px" }}>
+              <scroll-view scroll-y style={{ height: "100%", paddingBottom: "12px", paddingTop: "12px" }}>
+                <view className="container" style={{ flexDirection: "row", flexWrap: "wrap", gap: "10px" }}>
+                  {Object.entries(badgeData).map(([key, value]) => (
+                    <view className="item" key={key}
+                      style={{
+                        width: "100%",         // same as your grid cell width
+                        alignItems: "center", // center contents horizontally
+                      }}
+                    >
+                      <BottomBadge style={{
+                        width: "100px",         // same as your grid cell width
+                        alignItems: "center", // center contents horizontally
+                      }}
+                        url={value.url}
+                        desc={value.desc}
+                        cost={value.cost}
+                        mediaName={currentId}
+                        id={key}
+                        increment={incrBadge}
+                      />
+                    </view>
+                  ))}
+                </view>
+              </scroll-view>
             </view>
+
           </view>
 
           <view
@@ -293,6 +319,9 @@ export default function Popup() {
               <view
                 style={{
                   padding: "12px 32px",
+                  maxWidth: "250px",              // limit how wide the pill can grow
+                  width: "auto",
+                  maxHeight: "60px",
                   background:
                     "linear-gradient(90deg, #ff3b5c 0%, #ff2a68 100%)", // TikTok red-pink
                   borderRadius: "9999px", // pill shape
@@ -310,7 +339,7 @@ export default function Popup() {
                 <text
                   style={{
                     color: "#fff",
-                    fontSize: "36px",
+                    fontSize: "24px",
                     fontWeight: "bold",
                   }}
                 >
@@ -323,10 +352,6 @@ export default function Popup() {
       </view>
 
       {/* {captcha page} */}
-
-      <view style={{ display: showCaptcha ? "block" : "none" }}>
-        <Captcha></Captcha>
-      </view>
     </view>
   );
 }
