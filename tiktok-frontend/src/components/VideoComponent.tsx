@@ -1,11 +1,11 @@
 import AutoplayVideo from "./native-elements/AutoplayVideo.js"; // yet to be implemented
 import BadgesMainPageUI from "./BadgesMainPageUI.js";
 
-import ProfileIcon from "../assets/misc-icons/profile.png";
-import HeartIcon from "../assets/misc-icons/heart.png";
-import MessageIcon from "../assets/misc-icons/message.png";
-import SaveIcon from "../assets/misc-icons/save.png";
-import ShareIcon from "../assets/misc-icons/share.png";
+const ProfileIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/profile.53750314.png?token=GHSAT0AAAAAADIVE6YWZX5NIXSWFX52B6IA2FSXF5Q';
+const ShareIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/share.82c0f18a.png?token=GHSAT0AAAAAADIVE6YWT2X6F5OIS7YDLVDW2FSXJZA';
+const HeartIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/heart.697d5280.png?token=GHSAT0AAAAAADIVE6YXTC3I2AQ7RPRVWUEQ2FSXOFA';
+const MessageIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/message.d2c37452.png?token=GHSAT0AAAAAADIVE6YWWUBDHK7LNOFLKVM22FSXOTA';
+const SaveIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/save.080d7bdc.png?token=GHSAT0AAAAAADIVE6YXMIJCMRSB6PQREMFE2FSXPAA';
 
 type OverlayProps = {
   id: string;

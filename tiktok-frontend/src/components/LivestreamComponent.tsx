@@ -1,13 +1,14 @@
 import AutoplayVideo from './native-elements/AutoplayVideo.js' // yet to be implemented
 import BadgesMainPageUI from './BadgesMainPageUI.js'
 
-import ProfileIcon from '../assets/misc-icons/profile.png'
-import ShopIcon from '../assets/misc-icons/shop.png'
-import SmileyIcon from '../assets/misc-icons/smiley.png'
-import FriendsIcon from '../assets/misc-icons/friends.png'
-import RoseIcon from '../assets/misc-icons/rose.png'
-import GiftIcon from '../assets/misc-icons/gift.png'
-import ShareIcon from '../assets/misc-icons/share.png'
+
+const ProfileIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/profile.53750314.png?token=GHSAT0AAAAAADIVE6YWZX5NIXSWFX52B6IA2FSXF5Q';
+const SmileyIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/smiley.png?token=GHSAT0AAAAAADIVE6YXYW3KFLNCCFECK4X42FSXG3Q';
+const FriendsIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/friends.png?token=GHSAT0AAAAAADIVE6YW3XNPDHO27GIWHNC22FSXHVA';
+const RoseIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/rose.png?token=GHSAT0AAAAAADIVE6YX6WLIU4FOHYVX4ZYK2FSXIJQ';
+const GiftIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/gift.png?token=GHSAT0AAAAAADIVE6YW3ICYIM5WJSRGBHF62FSXI3Q';
+const ShareIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/share.82c0f18a.png?token=GHSAT0AAAAAADIVE6YWT2X6F5OIS7YDLVDW2FSXJZA';
+const ShopIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/shop.png?token=GHSAT0AAAAAADIVE6YX7I2H4WBWCD7YCO4G2FSXLAA';
 
 type VideoProps = {
   id: string;

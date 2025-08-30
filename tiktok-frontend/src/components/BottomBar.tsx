@@ -1,8 +1,8 @@
-import HomeIcon from '../assets/misc-icons/home.png';
-import StoreIcon from '../assets/misc-icons/store.png';
-import PlusIcon from '../assets/misc-icons/plus.png';
-import InboxIcon from '../assets/misc-icons/inbox.png';
-import AccountIcon from '../assets/misc-icons/account.png';
+const HomeIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/home.4ef6da56.png?token=GHSAT0AAAAAADIVE6YWTSWB3IPUKKQYAVN62FSWQYA';
+const StoreIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/store.b9ef7a13.png?token=GHSAT0AAAAAADIVE6YWDFH4WBCVTTD5UHTY2FSWULQ';
+const PlusIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/plus.bf988428.png?token=GHSAT0AAAAAADIVE6YWYXZUO36UIR7TRMOG2FSWR2Q';
+const InboxIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/inbox.3d146908.png?token=GHSAT0AAAAAADIVE6YWKKJSA5456PXNA2LA2FSW2PQ';
+const AccountIcon = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/account.83d2979b.png?token=GHSAT0AAAAAADIVE6YX5PA6DGRNYWFA6XBW2FSW3RA';
 
 
 export function IconButton({imageSrc, label}: {

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import Arrow from "../assets/arrow.png";
-import Coin from "../assets/misc-icons/coin.png";
 import { useStore } from "../store.js";
 import "../css/popupSlide.css";
 import Captcha from "./Captcha.js";
 import { badgeData } from "../constants.js";
+
+const Arrow = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/arrow.aee54ba7.png?token=GHSAT0AAAAAADIVE6YXTQEVNTMPZUK7KGN22FSW7VA';
+const Coin = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/coin.png?token=GHSAT0AAAAAADIVE6YWR7OSBZ6CCOPATSL42FSXE6A';
 
 type PopupProps = {
   id:string;
