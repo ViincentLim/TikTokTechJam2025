@@ -109,171 +109,191 @@ export default function Popup() {
           height: "80%",
         }}
       >
-        <view
-          style={{
-            background: "#fff",
-            borderTopRightRadius: '12px',
-            borderTopLeftRadius: '12px',
-            padding: "0 0 32px 0",
+        {showCaptcha ? (
+          <view style={{
+            // display: "flex",
             width: "100%",
             height: "100%",
-            boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
-            position: "relative",
-            display: showCaptcha ? "none" : "flex",
-            flexDirection: "column",
-            // overflow: "hidden",
+            // justifyContent: "stretch",
+            background: "#fff",
+          }}>
+            <Captcha></Captcha>
+          </view>
+        ) : (
+        <view
+        style={{
+          background: "#fff",
+          borderTopRightRadius: '12px',
+          borderTopLeftRadius: '12px',
+          padding: "0 0 32px 0",
+          width: "100%",
+          height: "100%",
+          boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
+          position: "relative",
+          display: "flex",
+          // display: showCaptcha ? "none" : "flex",
+          flexDirection: "column",
+          // overflow: "hidden",
+        }}
+      >
+        <view
+          style={{
+            width: "100%",
+            height: "80px",
+            background: "#20252aff",
+            borderTopLeftRadius: "12px",
+            borderTopRightRadius: "12px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingLeft: "24px",
+            marginBottom: "24px",
           }}
         >
+          <text
+            style={{ color: "#fff", fontSize: "24px", fontWeight: "bold" }}
+          >
+            Badges
+          </text>
           <view
             style={{
-              width: "100%",
-              height: "80px",
-              background: "#20252aff",
-              borderTopLeftRadius: "12px",
-              borderTopRightRadius: "12px",
+              position: "absolute",
+              top: "12px",
+              right: "12px",
+              background: "#f0f0f0",
+              borderRadius: "50%",
+              width: "36px",
+              height: "36px",
               display: "flex",
-              flexDirection: "row",
               alignItems: "center",
-              justifyContent: "space-between",
-              paddingLeft: "24px",
-              marginBottom: "24px",
+              justifyContent: "center",
+              border: "none",
+              fontSize: "1.5rem",
+              cursor: "pointer",
+              color: "#333",
+              zIndex: 2,
             }}
+            aria-label="Close"
+            bindtap={toggle}
           >
             <text
-              style={{ color: "#fff", fontSize: "24px", fontWeight: "bold" }}
-            >
-              Badges
-            </text>
-            <view
               style={{
-                position: "absolute",
-                top: "12px",
-                right: "12px",
-                background: "#f0f0f0",
-                borderRadius: "50%",
-                width: "36px",
-                height: "36px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "none",
-                fontSize: "1.5rem",
-                cursor: "pointer",
-                color: "#333",
-                zIndex: 2,
+                color: "#222",
+                fontSize: "22px",
+                fontWeight: "bold",
               }}
-              aria-label="Close"
-              bindtap={toggle}
             >
-              <text
-                style={{
-                  color: "#222",
-                  fontSize: "22px",
-                  fontWeight: "bold",
-                }}
-              >
-                ×
-              </text>
-            </view>
+              ×
+            </text>
           </view>
+        </view>
 
-        <view style={{ padding: "0px 24px" }}>
-          {/* <text style={{ color: "#444", fontSize: '14px' }}>
-            Support your favourite creators by awarding a badge!
-          </text> */}
-          <scroll-view
-            style={{
-              display: "flex", padding: "8px 0", justifyContent: "center", width: "100%", scrollPaddingLeft: "12px", // ← adds left scroll padding
-            }}
-            scroll-x={true} // enable horizontal scrolling
-            show-scrollbar={false} // optional: hide scrollbar
+      <view style={{ padding: "0px 24px" }}>
+        {/* <text style={{ color: "#444", fontSize: '14px' }}>
+          Support your favourite creators by awarding a badge!
+        </text>*/}
+        <scroll-view
+          style={{
+            display: "flex", padding: "8px 0", justifyContent: "center", width: "100%", scrollPaddingLeft: "12px", // ← adds left scroll padding
+          }}
+          scroll-x={true} // enable horizontal scrolling
+          show-scrollbar={false} // optional: hide scrollbar
+        >
+          <view
           >
-            <view
-            >
-              {badgeEntries.every(([key, quantity]) => quantity === 0) ?
-                <TopBadge
-                  url="/path/to/first-award.png" // placeholder image
-                  quantity={0}
-                  placeholderText="No badges awarded yet...be the first!"
-                />
-                
-                : 
-
-                badgeEntries.map(([badgeID, quantity]) => 
-                quantity > 0 ?       
-                (
-                  <TopBadge
-                    key={badgeID}
-                    url={badgeData[parseInt(badgeID)].url}
-                    quantity={badges[currentId][parseInt(badgeID)]}
-                    style={{ marginRight: 8 }}
-                  />
-                ) : (<></>)
-                 
-              )}
-              {/* TODO SOME TYPE ISSUE HERE BTWN RECORD<> AND DICT, SO HAVE TO PARSEINT */}
-
-              {/* {Object.entries(badges[id]).filter((badge) => badges[currentId][badge.id] > 0).length > 0 ? (
-              topBadgeList
-                .filter((badge) => badges[currentId][badge.id] > 0)
-                .map((badge, index) => (
-                  <TopBadge
-                    key={badgeID}
-                    url={badge.url}
-                    quantity={badges[currentId][badge.id]}
-                    style={{ marginRight: 8 }}
-                  />
-                ))
-            ) : (
+            {badgeEntries.every(([key, quantity]) => quantity === 0) ?
               <TopBadge
                 url="/path/to/first-award.png" // placeholder image
                 quantity={0}
-                placeholderText="Be the first!"
+                placeholderText="No badges awarded yet...be the first!"
               />
-            )}*/}
-            </view>
-            
-          </scroll-view>
-          {/* Divider line */}
-          <view
-            style={{
-              width: "100%",       // full width of the container
-              height: 1,           // 1px line
-              backgroundColor: "#ddd", // light gray line
-              margin: "12px 0",    // space above and below
-            }}
-          />
-          <view style={{ marginTop: 12 }}>
 
-            <view style={{ display: "flex", flexWrap: "wrap" }}>
-              
+              :
 
-              {/* {bottomBadgeList.map((badge, idx) => (
-                <BottomBadge
-                  key={idx}
-                  url={badge.url}
-                  desc={badge.desc}
-                  mediaName={currentId}
-                  id={badge.id}
-                  increment={incrBadge}
+              badgeEntries.map(([badgeID, quantity]) =>
+              quantity > 0 ?
+              (
+                <TopBadge
+                  key={badgeID}
+                  url={badgeData[parseInt(badgeID)].url}
+                  quantity={badges[currentId][parseInt(badgeID)]}
+                  style={{ marginRight: 8 }}
                 />
-              ))} */}
+              ) : (<></>)
 
-                {Object.entries(badgeData).map(([key, value]) => (
-                  <BottomBadge
-                    key={key}
-                    url={value.url}
-                    desc={value.desc}
-                    cost={value.cost}
-                    mediaName={currentId}
-                    id={key}
-                    increment={incrBadge}
-                  />
-                ))}
-              </view>
-            </view>
+            )}
+            {/* TODO SOME TYPE ISSUE HERE BTWN RECORD<> AND DICT, SO HAVE TO PARSEINT */}
+
+            {/* {Object.entries(badges[id]).filter((badge) => badges[currentId][badge.id] > 0).length > 0 ? (
+            topBadgeList
+              .filter((badge) => badges[currentId][badge.id] > 0)
+              .map((badge, index) => (
+                <TopBadge
+                  key={badgeID}
+                  url={badge.url}
+                  quantity={badges[currentId][badge.id]}
+                  style={{ marginRight: 8 }}
+                />
+              ))
+          ) : (
+            <TopBadge
+              url="/path/to/first-award.png" // placeholder image
+              quantity={0}
+              placeholderText="Be the first!"
+            />
+          )}*/}
           </view>
 
+        </scroll-view>
+        {/* Divider line */}
+        <view
+          style={{
+            width: "100%",       // full width of the container
+            height: 1,           // 1px line
+            backgroundColor: "#ddd", // light gray line
+            margin: "12px 0",    // space above and below
+          }}
+        />
+        <view style={{ marginTop: 12 }}>
+
+          <view style={{ display: "flex", flexWrap: "wrap" }}>
+
+
+            {/* {bottomBadgeList.map((badge, idx) => (
+              <BottomBadge
+                key={idx}
+                url={badge.url}
+                desc={badge.desc}
+                mediaName={currentId}
+                id={badge.id}
+                increment={incrBadge}
+              />
+            ))} */}
+
+              {Object.entries(badgeData).map(([key, value]) => (
+                <BottomBadge
+                  key={key}
+                  url={value.url}
+                  desc={value.desc}
+                  cost={value.cost}
+                  mediaName={currentId}
+                  id={key}
+                  increment={incrBadge}
+                />
+              ))}
+            </view>
+          </view>
+        </view>
+
+        <view
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "flex-end",
+            padding: "12px 24px",
+          }}
+        >
           <view
             style={{
               display: "flex",
@@ -284,48 +304,38 @@ export default function Popup() {
           >
             <view
               style={{
+                padding: "12px 32px",
+                background:
+                  "linear-gradient(90deg, #ff3b5c 0%, #ff2a68 100%)", // TikTok red-pink
+                borderRadius: "9999px", // pill shape
+                boxShadow: "0 4px 12px rgba(255, 59, 92, 0.3)", // glow
                 display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "flex-end",
-                padding: "12px 24px",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                transition: "transform 0.2s ease-in-out",
+              }}
+              bindtap={() => {
+                setShowCaptcha(true);
               }}
             >
-              <view
+              <text
                 style={{
-                  padding: "12px 32px",
-                  background:
-                    "linear-gradient(90deg, #ff3b5c 0%, #ff2a68 100%)", // TikTok red-pink
-                  borderRadius: "9999px", // pill shape
-                  boxShadow: "0 4px 12px rgba(255, 59, 92, 0.3)", // glow
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  transition: "transform 0.2s ease-in-out",
-                }}
-                bindtap={() => {
-                  console.log("Recharge tapped");
+                  color: "#fff",
+                  fontSize: "36px",
+                  fontWeight: "bold",
                 }}
               >
-                <text
-                  style={{
-                    color: "#fff",
-                    fontSize: "36px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  Recharge
-                </text>
-              </view>
+                Recharge
+              </text>
             </view>
           </view>
         </view>
       </view>
+        )}
 
-      {/* {captcha page} */}
+        {/* {captcha page} */}
 
-      <view style={{ display: showCaptcha ? "block" : "none" }}>
-        <Captcha></Captcha>
       </view>
     </view>
   );
