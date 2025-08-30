@@ -1,4 +1,56 @@
-# TikTok Backend - Docker Setup
+# TikTok TechJam 2025
+
+This is team WhaleOfATime’s submission for TikTok TechJam 2025, addressing the problem statement “Value-sharing reimagined”. We are also attempting the optional UI challenge to build our solution for the AI Era using Lynx.
+
+## Introduction
+To provide novel solutions for value-sharing in the online creator space, we sought to redefine what “value” can mean for the creator. An existing feature that TikTok has is its “gifting” system, where virtual gifts can be bought with real money and sent to creators, who then get a portion of this money. Borrowing upon this idea, we asked ourselves, “Are there any other forms of non-monetary value that would benefit creators? Since many platforms such as TikTok and YouTube are algorithm-based, we realised that creators also value attention and credibility - factors that would help to drive viewer traffic towards their content.
+
+## Main Solution
+### FEATURES
+- Badge system
+- AI-generated minigame CAPTCHAs
+### FUNCTIONALITY
+Our solution is a new badge system, implemented in the TikTok context. On the UI of every video and livestream, there will be this new prominent pill display that will show the badges awarded / lack thereof.
+- The badge system gives the option for viewers to exchange real currency for badges (via TikTok’s coin system) and gift these badges to creators’ short videos and livestreams
+- These badges (e.g. Outstanding Badge, Family-friendly Badge, Enjoyment Badge) act like positive reviews / seals of approval and are meant to signal to other potential viewers that the gifted creator’s content is worth watching, increasing their views and attention.
+- We have planned the badges to be moderately to highly priced. This would make the badges have more significance, where gifting a badge to a creator would imply that they are genuinely interesting to watch, credible etc.
+
+
+## Fraud and system-gaming prevention
+In the AI Era, AI agents will be widely accessible. This presents a problem for companies and developers that have to deal with the increased intensity and frequency of system-gaming and fraudulent activity. To address this issue, our team has come up with a proof-of-concept: using AI to generate minigames for human verification. We chose 2D, minimalistic puzzle games for their ease of generation and gentle learning curve. Games are also deliberately kept short and simple to increase user retention. To ensure game quality, we utilised the well-known Phaser library for puzzle generation.
+
+
+## Fund safety
+Our badge system will utilise TikTok’s existing coin ecosystem to ensure that microtransactions are secure. For context, in TikTok’s virtual gifting feature, viewers pay for these gifts with TikTok Coins, which can be exchanged for real currency. Our solution also aims to improve fund safety with the AI-generated minigames feature. In the incoming AI Era, current pattern-recognition challenges are no longer enough to distinguish humans from machines. That is why we thought to rely on unconventional logical tests - games, using AI to vary the logic puzzles each time, increasing the difficulty for a well-trained AI to pass off as a human.
+More details on the AI-generated minigames
+For the LLM-generated CAPTCHA minigame, we utilised AI agents. We would write the AI-generated game code to a file, before using another web agent to get feedback on this HTML file, by taking a screenshot (literal picture) of the game and feeding that into a VLM. This VLM check ensures that the game is playable, visible and accessible.
+
+## Future ambitions for AI-generated minigames
+We plan to expand upon this idea of AI-generated minigames, possibly adding them in between the scrolling of videos to increase viewer retention and engagement. This could potentially deter viewbotting as viewbots would face difficulty overcoming these minigames, ensuring that view counts are more accurate, and limiting fraudulent activity.
+
+
+
+## Challenges faced
+Lynx is not that mature as a framework, resulting in us losing a lot of sleep due to the unavailability of many native elements we have come to take for granted. The lack of pre-built components, even for common components such as videos and web-embedded views, meant that we had to make our own versions of them. In the end, we resorted to hosting our images and videos on Google Cloud Run. We had intended to develop our app for multiple platforms (as Lynx had designed), but due to these setbacks, we were unable to do so. The lack of documentation, as well as some seemingly incomplete/unverified articles (e.g. <x-video-pro>), also caused a lot of confusion in our development process.
+
+
+## Assets used
+https://www.svgrepo.com/svg/484569/coin
+https://www.svgrepo.com/svg/532997/plus-large?edit=true
+https://www.svgrepo.com/svg/500582/handbag?edit=true
+https://www.svgrepo.com/svg/535437/home
+https://www.svgrepo.com/svg/499624/message-square
+https://www.svgrepo.com/svg/456992/account
+https://www.svgrepo.com/svg/500977/present
+https://www.svgrepo.com/svg/481959/rose-7
+https://www.svgrepo.com/svg/352633/user-friends
+https://www.svgrepo.com/svg/365739/smiley-thin
+https://www.svgrepo.com/svg/479116/share-arrow
+https://www.svgrepo.com/svg/535228/bookmark
+https://www.svgrepo.com/svg/505430/message-circle-lines
+https://www.svgrepo.com/svg/535436/heart
+https://www.svgrepo.com/svg/535436/heart
+The videos used in the project were recorded by our team.
 
 A FastAPI backend with AI-powered captcha generation using Lynx, Selenium, and Google Gemini.
 
