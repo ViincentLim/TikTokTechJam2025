@@ -3,6 +3,8 @@ import Popup from "./Popup.js";
 import Button from "./Button.js";
 import { useStore } from "../store.js";
 import { badgeData } from "../constants.js";
+import PlusIcon from '../assets/misc-icons/plus.png';
+
 
 type BadgesProps = {
   id: string;
@@ -52,6 +54,7 @@ function BadgeIcon({ type, count }: BadgeIconProps) {
           x{count}
         </text>
       </view>
+
     </view>
   );
 }
@@ -85,7 +88,7 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
           borderRadius: "24px", // More pronounced rounding for individual badges
           // flexDirection: "row",
           display: "flex", // Ensure content inside BadgeIcon is also a row
-          // alignItems: "center",
+          alignItems: "center",
           justifyContent: "center",
           // minWidth: '100px', // Give a minimum width for consistent sizing
           // minHeight: '80px', // Give a fixed height
@@ -93,6 +96,18 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
         }}
       >
         <text style={{fontSize: "14px", color: "rgba(255, 255, 255, 0.6)"}}>🏅Gift a badge </text>
+
+        <view style={{
+          // width:'15px', height:'15px',
+          backgroundColor: "rgba(255, 255, 255, 0.35)",
+          borderRadius:'50px',
+          alignItems:'center',
+          justifyContent:'center',
+          marginLeft:'4px',
+          padding:'2px'
+        }}>
+          <image src={PlusIcon} style="height:20px;width:20px;"></image>
+        </view>
       </view>
     );
   }
@@ -146,6 +161,7 @@ export default function BadgesMainPageUI({ id }: BadgesProps) {
             <text style={{ fontSize: "14px", fontWeight:'600', color: "white" }}>+{remainingCount}</text>
           </view>
         )}
+        
       </Button>
     </view>
   );

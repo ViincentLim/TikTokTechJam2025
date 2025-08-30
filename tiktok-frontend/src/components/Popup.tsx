@@ -29,7 +29,7 @@ const TopBadge = ({ url, quantity, placeholderText }: any) => {
       }}
     >
       <BadgeWrapper url={url} />
-      <text style={{ color: "#444", fontSize: "16px", marginTop: "4px" }}>
+      <text style={{ color: "#444", fontSize: "14px", marginTop: "4px" }}>
         {quantity > 0 ? `x${quantity}` : placeholderText}
       </text>
     </view>
@@ -141,7 +141,7 @@ export default function Popup() {
             <text
               style={{ color: "#fff", fontSize: "24px", fontWeight: "bold" }}
             >
-              Send an Award
+              Badges
             </text>
             <view
               style={{
@@ -177,9 +177,9 @@ export default function Popup() {
           </view>
 
         <view style={{ padding: "0px 24px" }}>
-          <text style={{ color: "#444", fontSize: 16 }}>
-            Creator Awards
-          </text>
+          {/* <text style={{ color: "#444", fontSize: '14px' }}>
+            Support your favourite creators by awarding a badge!
+          </text> */}
           <scroll-view
             style={{
               display: "flex", padding: "8px 0", justifyContent: "center", width: "100%", scrollPaddingLeft: "12px", // ← adds left scroll padding
@@ -193,7 +193,7 @@ export default function Popup() {
                 <TopBadge
                   url="/path/to/first-award.png" // placeholder image
                   quantity={0}
-                  placeholderText="Be the first!"
+                  placeholderText="No badges awarded yet...be the first!"
                 />
                 
                 : 
