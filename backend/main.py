@@ -2,7 +2,9 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from starlette.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from google import genai
+from games import game_1, game_2, game_3
 
 from agents.manager.agent import run_manager_agent
 
@@ -27,9 +29,25 @@ async def get_video(video_id: str):
     return {"video_id": video_id, "title": "Sample Video"}
 
 
+games = [
+    game_1,
+    game_2,
+    game_3
+]
+
+async def give_game():
+    try:
+        if len(games) == 0:
+            games.append(run_manager_agent())
+        return games.pop()
+    finally:
+        games.append(run_manager_agent())
+
 @app.get("/captcha", response_class=HTMLResponse)
 async def get_captcha():
     print("Generating captcha...")
     response = run_manager_agent()
     print("Captcha generated.")
     return HTMLResponse(response)
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
