@@ -15,6 +15,7 @@
 		2B94A3D52D6613740060892C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2B94A3D42D6613740060892C /* Base */; };
 		2B94A3DD2D6614980060892C /* DemoLynxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B94A3DC2D6614980060892C /* DemoLynxProvider.swift */; };
 		2BE49E032D7720F0000D068C /* main.lynx.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2BE49E022D7720F0000D068C /* main.lynx.bundle */; };
+		2C5D865C2E63158B00DA6FDD /* LynxFeedVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5D865B2E63158B00DA6FDD /* LynxFeedVideo.m */; };
 		2CC304F92E628D6900D2ADEA /* LynxWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC304F82E628D6900D2ADEA /* LynxWebView.m */; };
 		6EA704372E62A1F2005CFBF1 /* static in Resources */ = {isa = PBXBuildFile; fileRef = 6EA704352E62A1CE005CFBF1 /* static */; };
 		89573956B9B1C30C1595062A /* Pods_Hello_Lynx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8FB7B785762174C36C1C84 /* Pods_Hello_Lynx.framework */; };
@@ -32,6 +33,8 @@
 		2B94A3DC2D6614980060892C /* DemoLynxProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLynxProvider.swift; sourceTree = "<group>"; };
 		2B94A3DE2D6614DC0060892C /* Hello-Lynx-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hello-Lynx-Bridging-Header.h"; sourceTree = "<group>"; };
 		2BE49E022D7720F0000D068C /* main.lynx.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = main.lynx.bundle; sourceTree = "<group>"; };
+		2C5D865A2E63158B00DA6FDD /* LynxFeedVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LynxFeedVideo.h; sourceTree = "<group>"; };
+		2C5D865B2E63158B00DA6FDD /* LynxFeedVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LynxFeedVideo.m; sourceTree = "<group>"; };
 		2CC304F72E628D6900D2ADEA /* LynxWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LynxWebView.h; sourceTree = "<group>"; };
 		2CC304F82E628D6900D2ADEA /* LynxWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LynxWebView.m; sourceTree = "<group>"; };
 		61CE2062BA0F77A3DF32F268 /* Pods-Hello-Lynx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello-Lynx.release.xcconfig"; path = "Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx.release.xcconfig"; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 		2B94A3BC2D6613730060892C = {
 			isa = PBXGroup;
 			children = (
+				2C5D865A2E63158B00DA6FDD /* LynxFeedVideo.h */,
+				2C5D865B2E63158B00DA6FDD /* LynxFeedVideo.m */,
 				6EA704352E62A1CE005CFBF1 /* static */,
 				2CC304F72E628D6900D2ADEA /* LynxWebView.h */,
 				2CC304F82E628D6900D2ADEA /* LynxWebView.m */,
@@ -208,9 +213,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hello-Lynx/Pods-Hello-Lynx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -226,6 +235,7 @@
 			files = (
 				2B94A3DD2D6614980060892C /* DemoLynxProvider.swift in Sources */,
 				2B94A3CD2D6613730060892C /* ViewController.swift in Sources */,
+				2C5D865C2E63158B00DA6FDD /* LynxFeedVideo.m in Sources */,
 				2B94A3C92D6613730060892C /* AppDelegate.swift in Sources */,
 				2CC304F92E628D6900D2ADEA /* LynxWebView.m in Sources */,
 				2B94A3CB2D6613730060892C /* SceneDelegate.swift in Sources */,
