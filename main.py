@@ -36,12 +36,9 @@ games = [
 ]
 
 async def give_game():
-    try:
-        if len(games) == 0:
-            games.append(run_manager_agent())
-        return games.pop()
-    finally:
+    if len(games) == 0:
         games.append(run_manager_agent())
+    return games.pop()
 
 @app.get("/captcha", response_class=HTMLResponse)
 async def get_captcha():
