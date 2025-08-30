@@ -6,7 +6,7 @@ import "../css/popupSlide.css";
 import Captcha from "./Captcha.js";import { badgeData } from "../constants.js";
 
 type PopupProps = {
-  awardedBadges: Record<number,number>;
+  id:string;
 };
 
 const BadgeWrapper = ({ url }: any) => {
@@ -49,14 +49,14 @@ const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) => {
   );
 };
 
-const topBadgeList = [
-  { quantity: 1, url: Arrow, id: 1 },
-  { quantity: 1, url: Arrow, id: 2 },
-  { quantity: 5, url: Arrow, id: 3 },
-  { quantity: 1, url: Arrow, id: 4 },
-  { quantity: 1, url: Arrow, id: 5 },
-  { quantity: 1, url: Arrow, id: 6 },
-];
+// const topBadgeList = [
+//   { quantity: 1, url: Arrow, id: 1 },
+//   { quantity: 1, url: Arrow, id: 2 },
+//   { quantity: 5, url: Arrow, id: 3 },
+//   { quantity: 1, url: Arrow, id: 4 },
+//   { quantity: 1, url: Arrow, id: 5 },
+//   { quantity: 1, url: Arrow, id: 6 },
+// ];
 
 // const bottomBadgeList = [
 //   { desc: "Bottom Badge 1", url: Arrow, id: 1 },
@@ -75,6 +75,7 @@ const topBadgeList = [
 export default function Popup() {
   const { currentId, toggle, badges, incrBadge } = useStore();
   const [showCaptcha, setShowCaptcha] = useState(false);
+  const badgeEntries = Object.entries(badges[currentId]);
   // bindtap to toggle for the entire popup element to fix bug where popup closes when anywhere on popup is clicked
   return (
     <view
@@ -169,12 +170,35 @@ export default function Popup() {
           >
             <view
             >
-              {topBadgeList.filter((badge) => badges[currentId][badge.id] > 0).length > 0 ? (
+              {badgeEntries.every(([key, quantity]) => quantity === 0) ?
+                <TopBadge
+                  url="/path/to/first-award.png" // placeholder image
+                  quantity={0}
+                  placeholderText="Be the first!"
+                />
+                
+                : 
+
+                badgeEntries.map(([badgeID, quantity]) => 
+                quantity > 0 ?       
+                (
+                  <TopBadge
+                    key={badgeID}
+                    url={badgeData[parseInt(badgeID)].url}
+                    quantity={badges[currentId][parseInt(badgeID)]}
+                    style={{ marginRight: 8 }}
+                  />
+                ) : (<></>)
+                 
+              )}
+              {/* TODO SOME TYPE ISSUE HERE BTWN RECORD<> AND DICT, SO HAVE TO PARSEINT */}
+
+              {/* {Object.entries(badges[id]).filter((badge) => badges[currentId][badge.id] > 0).length > 0 ? (
               topBadgeList
                 .filter((badge) => badges[currentId][badge.id] > 0)
                 .map((badge, index) => (
                   <TopBadge
-                    key={index}
+                    key={badgeID}
                     url={badge.url}
                     quantity={badges[currentId][badge.id]}
                     style={{ marginRight: 8 }}
@@ -186,7 +210,7 @@ export default function Popup() {
                 quantity={0}
                 placeholderText="Be the first!"
               />
-            )}
+            )}*/}
             </view>
             
           </scroll-view>
