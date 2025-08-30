@@ -1,4 +1,4 @@
-import { useState } from "@lynx-js/react";
+import {useState} from '@lynx-js/react';
 
 import "./App.css";
 import BottomBar from "./components/BottomBar.js";
@@ -9,7 +9,7 @@ import { videos } from "./constants.js";
 const BOTTOM_BAR_HEIGHT = "56px";
 
 export function App(props: { onRender?: () => void }) {
-  //const [currentPage, setCurrentPage] = useState('doomscroll');
+    //const [currentPage, setCurrentPage] = useState('doomscroll');
   //for if we are implementing the shop page. Rn it will just be the doomscroll page + coin recharge popup
 
   return (
