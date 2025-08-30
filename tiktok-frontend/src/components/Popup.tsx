@@ -178,13 +178,6 @@ export default function Popup() {
         <view
           style={{
             width: "100%",
-
-            height: "100%",
-            boxShadow: "0 2px 16px rgba(0,0,0,0.2)",
-            position: "relative",
-            // display: showCaptcha ? "none" : "flex",
-            flexDirection: "column",
-            // overflow: "hidden",
             height: "80px",
             background: "#20252aff",
             borderTopLeftRadius: "12px",
@@ -230,7 +223,7 @@ export default function Popup() {
                 fontSize: "22px",
                 fontWeight: "bold",
               }}
-            >
+            ><text>
               ×
             </text>
           </view>
@@ -362,7 +355,7 @@ export default function Popup() {
                 setShowCaptcha(true);
               }}
             >
-              <text
+              <view
                 style={{
 
                   padding: "12px 32px",
@@ -392,17 +385,23 @@ export default function Popup() {
                 >
                   Recharge
                 </text>
+                
               </view>
-
+              
+            
             </view>
           </view>
         </view>
+
+      
+        
       </view>
         )}
 
         {/* {captcha page} */}
         <Captcha />
 
+    </view>
     </view>
   );
 }
