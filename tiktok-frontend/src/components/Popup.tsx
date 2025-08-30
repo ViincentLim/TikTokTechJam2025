@@ -4,8 +4,6 @@ import "../css/popupSlide.css";
 import "../css/gridLayout.css";
 import Captcha from "./Captcha.js";
 import { badgeData } from "../constants.js";
-
-
 const Arrow = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/arrow.aee54ba7.png?token=GHSAT0AAAAAADIVE6YXTQEVNTMPZUK7KGN22FSW7VA';
 const Coin = 'https://raw.githubusercontent.com/Dharshan2004/photos-tiktok-hackathon/refs/heads/main/coin.png?token=GHSAT0AAAAAADIVE6YWR7OSBZ6CCOPATSL42FSXE6A';
 
@@ -15,11 +13,15 @@ type PopupProps = {
 
 const BadgeWrapper = ({ url }: any) => {
   return (
-    <view className="Logo">
-      <image auto-size style="width:90px" src={url} className="Logo" />
+    <view className="Logo" style={{ display: "flex", justifyContent: "center" }}>
+      <image
+        src={url}
+        style={{ width: "90px", height: "90px", objectFit: "contain" }}
+      />
     </view>
   );
 };
+
 
 // TODO: add href/function that is clickable
 const TopBadge = ({ url, quantity, placeholderText }: any) => {
@@ -53,7 +55,7 @@ export const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) 
       <text
         style={{
           flexShrink: 0,        // prevent shrinking into row below
-          flexWrap: "wrap",
+          flexWrap: "nowrap",
           color: "#444",
           fontSize: "14px",
           textAlign: "center"
@@ -68,7 +70,7 @@ export const BottomBadge = ({ url, desc, cost, mediaName, id, increment }: any) 
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          gap: 5,
+          marginTop: "10px",
         }}
       >
         <image src={Coin} style={{ height: 15, width: 15 }} />
@@ -119,9 +121,10 @@ function Header() {
 }
 
 export default function Popup() {
-  const { currentId, toggle, badges, incrBadge} = useStore();
+  const { currentId, toggle, badges, incrBadge } = useStore();
   const [showCaptcha, setShowCaptcha] = useState(false);
-  const badgeEntries = Object.entries(badges[currentId]);
+    const badgeEntries = Object.entries(badges[currentId]);
+  
   // bindtap to toggle for the entire popup element to fix bug where popup closes when anywhere on popup is clicked
   return (
     <view
@@ -175,60 +178,58 @@ export default function Popup() {
           // overflow: "hidden",
         }}
       >
-        <view
-          style={{
-            width: "100%",
-            height: "80px",
-            background: "#20252aff",
-            borderTopLeftRadius: "12px",
-            borderTopRightRadius: "12px",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingLeft: "24px",
-            marginBottom: "24px",
-          }}
-        >
-          <text
-            style={{ color: "#fff", fontSize: "24px", fontWeight: "bold" }}
-          >
-            Send an Award
-          </text>
           <view
             style={{
-              position: "absolute",
-              top: "12px",
-              right: "12px",
-              background: "#f0f0f0",
-              borderRadius: "50%",
-              width: "36px",
-              height: "36px",
+              width: "100%",
+              height: "80px",
+              background: "#20252aff",
+              borderTopLeftRadius: "12px",
+              borderTopRightRadius: "12px",
               display: "flex",
+              flexDirection: "row",
               alignItems: "center",
-              justifyContent: "center",
-              border: "none",
-              fontSize: "1.5rem",
-              cursor: "pointer",
-              color: "#333",
-              zIndex: 2,
+              justifyContent: "space-between",
+              paddingLeft: "24px",
+              marginBottom: "24px",
             }}
-            aria-label="Close"
-            bindtap={toggle}
           >
-            
+            <text
+              style={{ color: "#fff", fontSize: "24px", fontWeight: "bold" }}
+            >
+              Send an Award
+            </text>
             <view
               style={{
-                color: "#222",
-                fontSize: "22px",
-                fontWeight: "bold",
+                position: "absolute",
+                top: "12px",
+                right: "12px",
+                background: "#f0f0f0",
+                borderRadius: "50%",
+                width: "36px",
+                height: "36px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "none",
+                fontSize: "1.5rem",
+                cursor: "pointer",
+                color: "#333",
+                zIndex: 2,
               }}
-            ><text>
-              ×
-            </text>
+              aria-label="Close"
+              bindtap={toggle}
+            >
+              <text
+                style={{
+                  color: "#222",
+                  fontSize: "22px",
+                  fontWeight: "bold",
+                }}
+              >
+                ×
+              </text>
+            </view>
           </view>
-        </view>
-
 
           <view
             style={{
@@ -239,7 +240,7 @@ export default function Popup() {
             }}
           >
             <text style={{ color: "#444", fontSize: "16px" }}>
-              Support your favourite creators by awarding a badge!
+              Creator Awards
             </text>
             <scroll-view
               style={{
@@ -256,8 +257,7 @@ export default function Popup() {
               scroll-x={true} // enable horizontal scrolling
               show-scrollbar={false} // optional: hide scrollbar
             >
-              
-               {badgeEntries.every(([key, quantity]) => quantity === 0) ?
+             {badgeEntries.every(([key, quantity]) => quantity === 0) ?
 
               <TopBadge
                 url="/path/to/first-award.png" // placeholder image
@@ -279,8 +279,6 @@ export default function Popup() {
                 />
               ) : (<></>)
             )}
-       {/* TODO SOME TYPE ISSUE HERE BTWN RECORD<> AND DICT, SO HAVE TO PARSEINT */}
-
             </scroll-view>
             {/* Divider line */}
             <view
@@ -292,7 +290,7 @@ export default function Popup() {
               }}
             />
             <view style={{ marginTop: "12px", height: "400px" }}>
-              <scroll-view scroll-y style={{ height: "100%", paddingBottom: "12px", paddingTop: "12px" }}>
+              <scroll-view scroll-y style={{ height: "100%" }}>
                 <view className="container" style={{ flexDirection: "row", flexWrap: "wrap", gap: "10px" }}>
                   {Object.entries(badgeData).map(([key, value]) => (
                     <view className="item" key={key}
@@ -316,20 +314,10 @@ export default function Popup() {
                   ))}
                 </view>
               </scroll-view>
-
             </view>
 
           </view>
-        </view>
 
-        <view
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "flex-end",
-            padding: "12px 24px",
-          }}
-        >
           <view
             style={{
               display: "flex",
@@ -340,24 +328,14 @@ export default function Popup() {
           >
             <view
               style={{
-                padding: "12px 32px",
-                background:
-                  "linear-gradient(90deg, #ff3b5c 0%, #ff2a68 100%)", // TikTok red-pink
-                borderRadius: "9999px", // pill shape
-                boxShadow: "0 4px 12px rgba(255, 59, 92, 0.3)", // glow
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                transition: "transform 0.2s ease-in-out",
-              }}
-              bindtap={() => {
-                setShowCaptcha(true);
+                flexWrap: "wrap",
+                justifyContent: "flex-end",
+                padding: "12px 24px",
               }}
             >
               <view
                 style={{
-
                   padding: "12px 32px",
                   maxWidth: "250px",              // limit how wide the pill can grow
                   width: "auto",
@@ -373,9 +351,10 @@ export default function Popup() {
                   transition: "transform 0.2s ease-in-out",
                 }}
                 bindtap={() => {
-                  console.log("Recharge tapped");
+                  setShowCaptcha(true);
                 }}
               >
+              
                 <text
                   style={{
                     color: "#fff",
@@ -385,22 +364,16 @@ export default function Popup() {
                 >
                   Recharge
                 </text>
-                
               </view>
-              
-            
             </view>
           </view>
         </view>
-
-      
-        
-      </view>
         )}
+      {/* {captcha page} */}
 
-        {/* {captcha page} */}
-        <Captcha />
-
+      <view style={{ display: showCaptcha ? "block" : "none" }}>
+        <Captcha></Captcha>
+      </view>
     </view>
     </view>
   );
