@@ -44,7 +44,7 @@ const BottomBadge = ({url, desc, cost, mediaName, id, increment}: any) => {
             <text style={{color: '#444', fontSize: '16px'}}>{desc}</text>
       <view style={{alignSelf:'center', display:'flex', alignItems:'center'}}>
         <image src={Coin} style='height:15px;width:15px;margin:5px;'></image>
-        <text style={{ color: "#444", fontSize: 12 }}>{cost}</text>
+        <text style={{ color: "#444", fontSize: "12px" }}>{cost}</text>
       </view>
         </view>
     );
