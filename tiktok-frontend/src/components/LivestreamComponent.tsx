@@ -122,21 +122,19 @@ export default function LivestreamComponent({ id, videoUrl }: VideoProps){
 
             {/* Native Autoplay Video Component*/}
             {/* @ts-ignore - video is a valid Lynx custom element*/}
-            <feed-video style={{
-                position:"absolute",
-                height: "100%",
-                width: '100%',
-                zIndex:"1",
-                // background:'red',
-            }}>
-                {/* <AutoplayVideo playThisVideo={playingVideo==id}/> */}
-
-                {/* @vincent */}
-                {/* @ts-ignore - video is a valid Lynx custom element*/}
-                {/* <video id={`video-${id}`} src={videoUrl}/> */}
-                {/* @vincent */}
-                {/* @ts-ignore - video is a valid Lynx custom element*/}
-            </feed-video>
+            <web-view url={videoUrl} style={{
+                width: "100%",
+                height: '100%',
+            }}/>
+            {/*<feed-video style={{*/}
+            {/*    position:"absolute",*/}
+            {/*    height: "100%",*/}
+            {/*    width: '100%',*/}
+            {/*    zIndex:"1",*/}
+            {/*    // background:'red',*/}
+            {/*}}>*/}
+            {/*    /!* @ts-ignore - video is a valid Lynx custom element*!/*/}
+            {/*</feed-video>*/}
 
         </view>
     )

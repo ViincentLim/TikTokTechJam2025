@@ -136,10 +136,20 @@ export default function VideoComponent({ id, videoUrl }: VideoProps) {
         >
           {/* <AutoplayVideo playThisVideo={playingVideo==id}/> */}
 
-          {/* @vincent */}
           {/* @ts-ignore - feed-video is a valid Lynx custom element*/}
-           <feed-video id={`video-${id}`} src={videoUrl}/>
-          {/* @vincent */}
+            <web-view url={videoUrl} style={{
+                width: "100%",
+                height: '100%',
+            }}/>
+
+          {/* Comment out until it works */}
+          {/* <feed-video id={`video-${id}`} src={videoUrl}*/}
+          {/*  style={{*/}
+          {/*      width: "100%",*/}
+          {/*      height: '100%',*/}
+          {/*      background: "pink",*/}
+          {/*  }}*/}
+          {/* />*/}
         </view>
       </view>
     </view>
