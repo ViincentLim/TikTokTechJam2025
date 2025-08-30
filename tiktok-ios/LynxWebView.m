@@ -15,11 +15,12 @@
 LYNX_LAZY_REGISTER_UI("web-view")
 
 - (WKWebView *)createView {
-  WKWebViewConfiguration *cfg = [WKWebViewConfiguration new];
-  cfg.preferences.javaScriptEnabled = YES;
-  self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:cfg];
-  self.webView.navigationDelegate = self;
-  return self.webView;
+    WKWebViewConfiguration *cfg = [WKWebViewConfiguration new];
+//  cfg.preferences.javaScriptEnabled = YES;
+    cfg.defaultWebpagePreferences.allowsContentJavaScript = YES;
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:cfg];
+    self.webView.navigationDelegate = self;
+    return self.webView;
 }
 
 // React to url prop changes: <web-view url="https://example.com" />

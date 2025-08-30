@@ -13,9 +13,9 @@ docker run -it -p 8090:8000 tiktok/backend
 goto http://localhost:8090/captcha
 
 
-# Plan
-
-
 # Notes
 Add a replay button to reset if the captcha fail (maybe like up to 3 times)
 Some captchas are time-sensitive
+
+Current problem:
+Clicking in selenium doesnt work for web agent, leads to infinite loop.
