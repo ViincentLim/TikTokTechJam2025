@@ -46,7 +46,7 @@ async def give_game():
 @app.get("/captcha", response_class=HTMLResponse)
 async def get_captcha():
     print("Generating captcha...")
-    response = run_manager_agent()
+    response = await give_game()
     print("Captcha generated.")
     return HTMLResponse(response)
 

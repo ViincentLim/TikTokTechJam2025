@@ -18,7 +18,7 @@ export default function Captcha() {
             <web-view style={{
                 width: '100%',
                 height: '100%',
-            }} url="https://whale-of-a-time-279628822139.asia-southeast1.run.app/captcha"
+            }} url="http://0.0.0.0:8000/captcha"
                 bindgameover={(success: boolean)=>{
                     setSuccess(success);
                     toggle();
