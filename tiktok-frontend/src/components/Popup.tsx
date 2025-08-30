@@ -63,7 +63,7 @@ const bottomBadgeList = [
 
 export default function Popup() {
   const { currentId, toggle, badges, incrBadge } = useStore();
-  const {showCaptcha, setShowCaptcha} = useState(false);
+  const [showCaptcha, setShowCaptcha] = useState(false);
   // bindtap to toggle for the entire popup element to fix bug where popup closes when anywhere on popup is clicked
   return (
     <view
@@ -254,7 +254,6 @@ export default function Popup() {
       
         <view style={{display: !showCaptcha ? "block" : "none"}}>
           <Captcha>
-
           </Captcha>
       </view>
     </view>
